@@ -17,20 +17,92 @@
       <file leaf-file-name="_config.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="82" column="16" lean-forward="false" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+            <state relative-caret-position="-408">
+              <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="基于react开发的可伸缩tabs.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="db.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="基于react开发的可伸缩tabs.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="930">
-                <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <first_editor relative-caret-position="360">
+                <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
                 <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="react-native自定义按钮.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义按钮.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-2751">
+                <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+                <folding>
+                  <marker date="1529238706458" expanded="true" signature="1779:3157" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="1800:3146" ph="&lt;View/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="1909:2038" ph="&lt;Button/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="2047:2191" ph="&lt;Button/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="2200:2403" ph="&lt;Button/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="2252:2330" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+                  <marker date="1529238706458" expanded="true" signature="2412:2740" ph="&lt;Button/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="2468:2546" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+                  <marker date="1529238706458" expanded="true" signature="2569:2634" ph="{&quot;color&quot;: '##fff'...}" />
+                  <marker date="1529238706458" expanded="true" signature="2749:3132" ph="&lt;Button/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="2805:2883" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+                  <marker date="1529238706458" expanded="true" signature="2906:2971" ph="{&quot;color&quot;: '##fff'...}" />
+                  <marker date="1529238706458" expanded="true" signature="3218:3417" ph="..." />
+                  <marker date="1529238706458" expanded="true" signature="3441:3640" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="3483:3637" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="3572:3633" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="3676:4146" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="3694:3819" ph="{&quot;backgroundColor&quot;: '##43CCFF'...}" />
+                  <marker date="1529238706458" expanded="true" signature="3842:3967" ph="{&quot;width&quot;: '100%'...}" />
+                  <marker date="1529238706458" expanded="true" signature="3989:4033" ph="{&quot;color&quot;: '##000000'...}" />
+                  <marker date="1529238706458" expanded="true" signature="4058:4144" ph="{&quot;flexDirection&quot;: 'row'...}" />
+                  <marker date="1529238706458" expanded="true" signature="4183:5869" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4206:4250" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4273:4376" ph="{&quot;title&quot;: PropTypes.string...}" />
+                  <marker date="1529238706458" expanded="true" signature="4403:4425" ph="{&quot;title&quot;: 'ok'...}" />
+                  <marker date="1529238706458" expanded="true" signature="4447:4545" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4481:4539" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4569:4691" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4705:5867" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4775:5367" ph="{...}" />
+                  <marker date="1529238706458" expanded="true" signature="4800:5352" ph="&lt;View/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="4865:5336" ph="&lt;TouchableHighlight/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5044:5304" ph="&lt;View/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5134:5284" ph="&lt;Text/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5388:5855" ph="&lt;View/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5451:5841" ph="&lt;TouchableOpacity/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5567:5813" ph="&lt;View/&gt;" />
+                  <marker date="1529238706458" expanded="true" signature="5653:5795" ph="&lt;Text/&gt;" />
+                </folding>
               </first_editor>
               <second_editor />
             </state>
@@ -45,8 +117,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/source/_posts/react-native自定义按钮.md" />
       </list>
     </option>
   </component>
@@ -167,12 +240,12 @@
       <option name="presentableId" value="Default" />
       <updated>1528987583503</updated>
       <workItem from="1528987584801" duration="1983000" />
-      <workItem from="1529221166419" duration="1705000" />
+      <workItem from="1529221166419" duration="2585000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3688000" />
+    <option name="totallyTimeSpent" value="4568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -227,8 +300,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="82" column="16" lean-forward="false" selection-start-line="82" selection-start-column="16" selection-end-line="82" selection-end-column="16" />
+        <state relative-caret-position="-408">
+          <caret line="9" column="12" lean-forward="false" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -236,9 +325,59 @@
     <entry file="file://$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="930">
-            <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <first_editor relative-caret-position="360">
+            <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
             <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义按钮.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-2751">
+            <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <folding>
+              <marker date="1529238706458" expanded="true" signature="1779:3157" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="1800:3146" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="1909:2038" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2047:2191" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2200:2403" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2252:2330" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2412:2740" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2468:2546" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2569:2634" ph="{&quot;color&quot;: '##fff'...}" />
+              <marker date="1529238706458" expanded="true" signature="2749:3132" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2805:2883" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2906:2971" ph="{&quot;color&quot;: '##fff'...}" />
+              <marker date="1529238706458" expanded="true" signature="3218:3417" ph="..." />
+              <marker date="1529238706458" expanded="true" signature="3441:3640" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3483:3637" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3572:3633" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3676:4146" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3694:3819" ph="{&quot;backgroundColor&quot;: '##43CCFF'...}" />
+              <marker date="1529238706458" expanded="true" signature="3842:3967" ph="{&quot;width&quot;: '100%'...}" />
+              <marker date="1529238706458" expanded="true" signature="3989:4033" ph="{&quot;color&quot;: '##000000'...}" />
+              <marker date="1529238706458" expanded="true" signature="4058:4144" ph="{&quot;flexDirection&quot;: 'row'...}" />
+              <marker date="1529238706458" expanded="true" signature="4183:5869" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4206:4250" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4273:4376" ph="{&quot;title&quot;: PropTypes.string...}" />
+              <marker date="1529238706458" expanded="true" signature="4403:4425" ph="{&quot;title&quot;: 'ok'...}" />
+              <marker date="1529238706458" expanded="true" signature="4447:4545" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4481:4539" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4569:4691" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4705:5867" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4775:5367" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4800:5352" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="4865:5336" ph="&lt;TouchableHighlight/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5044:5304" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5134:5284" ph="&lt;Text/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5388:5855" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5451:5841" ph="&lt;TouchableOpacity/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5567:5813" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5653:5795" ph="&lt;Text/&gt;" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
