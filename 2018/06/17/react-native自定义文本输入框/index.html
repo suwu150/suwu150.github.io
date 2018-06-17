@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>react-native自定义文本输入框 | suwu150</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="react-native-custom-textInputreact-native-custom-input,一个自定义的输入组件     The final rendering Installation:  1npm install --save react-native-custom-input Example usage: 1.basic      12345678import Input">
+<meta name="keywords" content="react-native">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-native自定义文本输入框">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/react-native自定义文本输入框/index.html">
+<meta property="og:site_name" content="suwu150">
+<meta property="og:description" content="react-native-custom-textInputreact-native-custom-input,一个自定义的输入组件     The final rendering Installation:  1npm install --save react-native-custom-input Example usage: 1.basic      12345678import Input">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://github.com/suwu150/static-resource/blob/master/images/react-native-custom-input.gif?raw=true">
+<meta property="og:updated_time" content="2018-06-17T13:31:09.061Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-native自定义文本输入框">
+<meta name="twitter:description" content="react-native-custom-textInputreact-native-custom-input,一个自定义的输入组件     The final rendering Installation:  1npm install --save react-native-custom-input Example usage: 1.basic      12345678import Input">
+<meta name="twitter:image" content="https://github.com/suwu150/static-resource/blob/master/images/react-native-custom-input.gif?raw=true">
+  
+    <link rel="alternate" href="/atom.xml" title="suwu150" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">suwu150</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-react-native自定义文本输入框" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/06/17/react-native自定义文本输入框/" class="article-date">
+  <time datetime="2018-06-17T12:45:31.000Z" itemprop="datePublished">2018-06-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      react-native自定义文本输入框
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="react-native-custom-textInput"><a href="#react-native-custom-textInput" class="headerlink" title="react-native-custom-textInput"></a>react-native-custom-textInput</h1><p>react-native-custom-input,一个自定义的输入组件    </p>
+<h2 id="The-final-rendering"><a href="#The-final-rendering" class="headerlink" title="The final rendering"></a>The final rendering</h2><p><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native-custom-input.gif?raw=true" alt="The final rendering"></p>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation:  "></a>Installation:  </h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-custom-input</span><br></pre></td></tr></table></figure>
+<h2 id="Example-usage"><a href="#Example-usage" class="headerlink" title="Example usage: "></a>Example usage: </h2><p>1.basic     </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Input <span class="keyword">from</span> react-native-custom-input;</span><br><span class="line"></span><br><span class="line">   ...</span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        &lt;Input /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Props"><a href="#Props" class="headerlink" title="Props:   "></a>Props:   </h2><table>
+<thead>
+<tr>
+<th style="text-align:left">Props</th>
+<th style="text-align:left">Explain</th>
+<th style="text-align:left">type</th>
+<th style="text-align:left">require</th>
+<th style="text-align:left">default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">label</td>
+<td style="text-align:left">输入框的名称</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">文本输入框</td>
+</tr>
+<tr>
+<td style="text-align:left">value</td>
+<td style="text-align:left">输入框的值</td>
+<td style="text-align:left">any</td>
+<td style="text-align:left">yes</td>
+<td style="text-align:left">‘’</td>
+</tr>
+<tr>
+<td style="text-align:left">labelTextStyle</td>
+<td style="text-align:left">输入框的名称的样式</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">{ width: 100,flexDirection: ‘row’,justifyContent: ‘flex-end’, alignItems: ‘center’,marginLeft: 15,}</td>
+</tr>
+<tr>
+<td style="text-align:left">required</td>
+<td style="text-align:left">是否显示必输标志</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">false</td>
+</tr>
+<tr>
+<td style="text-align:left">mode</td>
+<td style="text-align:left">输入框的模式，具体有简单输入框还是输入域</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">简单文本输入框，值为（’Input’，’TextArea’）两者之一</td>
+</tr>
+<tr>
+<td style="text-align:left">textInputStyle</td>
+<td style="text-align:left">输入框的样式</td>
+<td style="text-align:left">object</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">{fontSize: 14, color: ‘#332f2b’}</td>
+</tr>
+<tr>
+<td style="text-align:left">isUpdate</td>
+<td style="text-align:left">是否可编辑，true为可编辑</td>
+<td style="text-align:left">boolean</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">true</td>
+</tr>
+<tr>
+<td style="text-align:left">suffix</td>
+<td style="text-align:left">输入框后面的后缀，值得注意的是length大于3的时候将不会显示</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">‘’</td>
+</tr>
+<tr>
+<td style="text-align:left">placeholderTextColor</td>
+<td style="text-align:left">占位符文字的颜色</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">‘#ccc8c4’</td>
+</tr>
+<tr>
+<td style="text-align:left">autoCapitalize</td>
+<td style="text-align:left">首字母是否自动大写</td>
+<td style="text-align:left">string</td>
+<td style="text-align:left">no</td>
+<td style="text-align:left">‘none’，只能是[‘characters’, ‘words’, ‘sentences’, ‘none’]之一</td>
+</tr>
+</tbody>
+</table>
+<p><code>注意： 由于输入框组件是在react-native官方组件的基础上进行封装，所以支持TextInput所有属性，在这里就不一一罗列</code></p>
+<p>Examples from props:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">  _onChange = <span class="function">(<span class="params">label, value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; [label]: value &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Text&gt;</span><br><span class="line">          &#123;<span class="keyword">this</span>.state.result&#125;</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Input onChange=&#123;(value) =&gt; this._onChange('input1', value)&#125; value=&#123;this.state.input1 || ''&#125; /</span>&gt;</span><br><span class="line">        &lt;Input label=&#123;<span class="string">'姓名'</span>&#125; onChange=&#123;(value) =&gt; <span class="keyword">this</span>._onChange(<span class="string">'input2'</span>, value)&#125; value=&#123;<span class="keyword">this</span>.state.input2 || <span class="string">''</span>&#125; /&gt;</span><br><span class="line">        &lt;Input onChange=&#123;(value) =&gt; <span class="keyword">this</span>._onChange(<span class="string">'input3'</span>, value)&#125; mode=&#123;<span class="string">'TextArea'</span>&#125; label=&#123;<span class="string">'详细地址'</span>&#125; value=&#123;<span class="keyword">this</span>.state.input3 || <span class="string">''</span>&#125; /&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">...</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="实现代码："><a href="#实现代码：" class="headerlink" title="实现代码："></a>实现代码：</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  TextInput,</span><br><span class="line">  View,</span><br><span class="line">  Text,</span><br><span class="line">  StyleSheet,</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  center: &#123;</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Input</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    inputStyle: TextInput.propTypes.style,</span><br><span class="line">    labelTextStyle: TextInput.propTypes.style,</span><br><span class="line">    placeholderTextColor: PropTypes.string,</span><br><span class="line">    isUpdate: PropTypes.bool,</span><br><span class="line">    readonly: PropTypes.bool,</span><br><span class="line">    textInputStyle: TextInput.propTypes.style,</span><br><span class="line">    autoCapitalize: PropTypes.oneOf([<span class="string">'characters'</span>, <span class="string">'words'</span>, <span class="string">'sentences'</span>, <span class="string">'none'</span>]),</span><br><span class="line">    label: PropTypes.string,</span><br><span class="line">    placeholder: PropTypes.string,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    placeholderTextColor: <span class="string">'#ccc8c4'</span>,</span><br><span class="line">    autoCapitalize: <span class="string">'none'</span>,</span><br><span class="line">    isUpdate: <span class="literal">true</span>,</span><br><span class="line">    readonly: <span class="literal">false</span>,</span><br><span class="line">    label: <span class="string">'文本输入框'</span>,</span><br><span class="line">    placeholder: <span class="string">'请输入'</span></span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      value: props.value || <span class="string">''</span>,</span><br><span class="line">      textAlign: <span class="string">'right'</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  componentWillReceiveProps(nextProps) &#123;</span><br><span class="line">    <span class="keyword">if</span> (nextProps.value !== <span class="keyword">this</span>.state.value) &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: nextProps.value &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _onChangeText = <span class="function">(<span class="params">val</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123; <span class="attr">value</span>: val &#125;);</span><br><span class="line">    <span class="keyword">this</span>.props.onChange &amp;&amp; <span class="keyword">this</span>.props.onChange(val.replace(<span class="regexp">/(^\s*)|(\s*$)/g</span>, <span class="string">''</span>));</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  _onBlur = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; onBlur &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    onBlur &amp;&amp; onBlur(e);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      textAlign: <span class="string">'right'</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  _onFocus = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; onFocus &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    onFocus &amp;&amp; onFocus(e);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      textAlign: <span class="string">'left'</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  _renderInputContent = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; textInputStyle, placeholderTextColor, autoCapitalize, isUpdate, suffix &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      isUpdate ?</span><br><span class="line">        &lt;View</span><br><span class="line">          style=&#123;[&#123; <span class="attr">flexDirection</span>: <span class="string">'row'</span>, <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">height</span>: <span class="string">'100%'</span> &#125;, styles.center]&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;TextInput</span><br><span class="line">            &#123;...this.props&#125;</span><br><span class="line">            onChangeText=&#123;<span class="keyword">this</span>._onChangeText&#125;</span><br><span class="line">            onBlur=&#123;<span class="keyword">this</span>._onBlur&#125;</span><br><span class="line">            onFocus=&#123;<span class="keyword">this</span>._onFocus&#125;</span><br><span class="line">            style=&#123;[&#123; <span class="attr">textAlign</span>: (<span class="keyword">this</span>.state.value === <span class="number">0</span> || <span class="keyword">this</span>.state.value) ?</span><br><span class="line">              <span class="keyword">this</span>.state.textAlign : <span class="string">'left'</span>, <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">fontSize</span>: <span class="number">14</span>, <span class="attr">color</span>: <span class="string">'#332f2b'</span> &#125;, textInputStyle]&#125;</span><br><span class="line">            placeholderTextColor=&#123;placeholderTextColor&#125;</span><br><span class="line">            value=&#123;<span class="built_in">String</span>(<span class="keyword">this</span>.state.value)&#125;</span><br><span class="line">            autoCorrect=&#123;<span class="literal">false</span>&#125;</span><br><span class="line">            autoCapitalize=&#123;autoCapitalize&#125;</span><br><span class="line">            underlineColorAndroid=<span class="string">"transparent"</span></span><br><span class="line">          /&gt;</span><br><span class="line">          &lt;Text style=&#123;&#123; <span class="attr">marginRight</span>: <span class="number">10</span> &#125;&#125;&gt;</span><br><span class="line">            &#123;(suffix &amp;&amp; suffix.length &gt; <span class="number">3</span>) ? <span class="string">''</span> : suffix&#125;</span><br><span class="line">          &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">        :</span><br><span class="line">        &lt;View</span><br><span class="line">          style=&#123;[&#123; <span class="attr">flexDirection</span>: <span class="string">'row'</span>, <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">height</span>: <span class="string">'100%'</span>, <span class="attr">backgroundColor</span>: <span class="string">'#f7f6f5'</span> &#125;, styles.center]&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;Text</span><br><span class="line">            style=&#123;&#123; <span class="attr">textAlign</span>: <span class="keyword">this</span>.state.value ? <span class="keyword">this</span>.state.textAlign : <span class="string">'left'</span>, <span class="attr">flex</span>: <span class="number">1</span> &#125;&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &#123;<span class="keyword">this</span>.state.value&#125;</span><br><span class="line">          &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;Text style=&#123;&#123; marginRight: 10 &#125;&#125;&gt;</span></span><br><span class="line"><span class="regexp">            &#123;(suffix &amp;&amp; suffix.length &gt; 3) ? '' : suffix&#125;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>Text&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  _renderTextAreaContent = () =&gt; &#123;</span></span><br><span class="line"><span class="regexp">    const &#123; textInputStyle, placeholderTextColor, autoCapitalize, isUpdate &#125; = this.props;</span></span><br><span class="line"><span class="regexp">    return (</span></span><br><span class="line"><span class="regexp">      isUpdate ?</span></span><br><span class="line"><span class="regexp">        &lt;TextInput</span></span><br><span class="line"><span class="regexp">          numberOfLines=&#123;4&#125;</span></span><br><span class="line"><span class="regexp">          &#123;...this.props&#125;</span></span><br><span class="line"><span class="regexp">          multiline=&#123;true&#125;</span></span><br><span class="line"><span class="regexp">          onChangeText=&#123;this._onChangeText&#125;</span></span><br><span class="line"><span class="regexp">          onBlur=&#123;this._onBlur&#125;</span></span><br><span class="line"><span class="regexp">          onFocus=&#123;this._onFocus&#125;</span></span><br><span class="line"><span class="regexp">          style=&#123;[&#123; marginVertical: 5, height: 60, marginHorizontal: 10, textAlign: 'left', flex: 1, &#125;,</span></span><br><span class="line"><span class="regexp">            textInputStyle,</span></span><br><span class="line"><span class="regexp">          ]&#125;</span></span><br><span class="line"><span class="regexp">          placeholderTextColor=&#123;placeholderTextColor&#125;</span></span><br><span class="line"><span class="regexp">          value=&#123;String(this.state.value)&#125;</span></span><br><span class="line"><span class="regexp">          autoCorrect=&#123;false&#125;</span></span><br><span class="line"><span class="regexp">          autoCapitalize=&#123;autoCapitalize&#125;</span></span><br><span class="line"><span class="regexp">          underlineColorAndroid="transparent"</span></span><br><span class="line"><span class="regexp">        /</span>&gt; :</span><br><span class="line">        &lt;Text</span><br><span class="line">          style=&#123;[&#123; <span class="attr">marginVertical</span>: <span class="number">5</span>, <span class="attr">height</span>: <span class="number">60</span>, <span class="attr">marginHorizontal</span>: <span class="number">10</span>, <span class="attr">textAlign</span>: <span class="string">'left'</span>, <span class="attr">flex</span>: <span class="number">1</span>,</span><br><span class="line">            backgroundColor: <span class="string">'#f7f6f5'</span>, &#125;, textInputStyle]&#125;</span><br><span class="line">        &gt;&#123;<span class="keyword">this</span>.state.value&#125;</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">  render() &#123;</span></span><br><span class="line"><span class="regexp">    const &#123; label, labelTextStyle, required, mode &#125; = this.props;</span></span><br><span class="line"><span class="regexp">    if (mode === 'TextArea') &#123;</span></span><br><span class="line"><span class="regexp">      return (</span></span><br><span class="line"><span class="regexp">        &lt;View</span></span><br><span class="line"><span class="regexp">          style=&#123;&#123;</span></span><br><span class="line"><span class="regexp">            height: 108,</span></span><br><span class="line"><span class="regexp">            width: '100%',</span></span><br><span class="line"><span class="regexp">            paddingVertical: 10,</span></span><br><span class="line"><span class="regexp">            paddingHorizontal: 15,</span></span><br><span class="line"><span class="regexp">            borderColor: '#eae6e4',</span></span><br><span class="line"><span class="regexp">            marginVertical: 5,</span></span><br><span class="line"><span class="regexp">            borderBottomWidth: 0.5,</span></span><br><span class="line"><span class="regexp">            backgroundColor: '#fff'</span></span><br><span class="line"><span class="regexp">          &#125;&#125;</span></span><br><span class="line"><span class="regexp">        &gt;</span></span><br><span class="line"><span class="regexp">          &lt;Text style=&#123;[&#123; fontSize: 15 &#125;, labelTextStyle]&#125;&gt;</span></span><br><span class="line"><span class="regexp">            &#123;label&#125;&#123; required ? &lt;Text style=&#123;&#123; fontSize: 16, fontWeight: 'bold', color: '#F00' &#125;&#125;&gt;*&lt;/</span>Text&gt; : <span class="literal">null</span> &#125;</span><br><span class="line">          &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &#123; this._renderTextAreaContent() &#125;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View</span><br><span class="line">        style=&#123;[&#123;</span><br><span class="line">          height: <span class="number">36</span>,</span><br><span class="line">          width: <span class="string">'100%'</span>,</span><br><span class="line">          backgroundColor: <span class="string">'#fff'</span>,</span><br><span class="line">          flexDirection: <span class="string">'row'</span>,</span><br><span class="line">          borderColor: <span class="string">'#eae6e4'</span>,</span><br><span class="line">          borderBottomWidth: <span class="number">0.5</span>,</span><br><span class="line">        &#125;, styles.center]&#125;</span><br><span class="line">      &gt;</span><br><span class="line">        &lt;Text style=&#123;[</span><br><span class="line">          &#123;</span><br><span class="line">            width: <span class="number">100</span>,</span><br><span class="line">            flexDirection: <span class="string">'row'</span>,</span><br><span class="line">            justifyContent: <span class="string">'flex-end'</span>,</span><br><span class="line">            alignItems: <span class="string">'center'</span>,</span><br><span class="line">            marginLeft: <span class="number">15</span>,</span><br><span class="line">            fontSize: <span class="number">14</span>,</span><br><span class="line">            color: <span class="string">'#514b46'</span></span><br><span class="line">          &#125;,</span><br><span class="line">          labelTextStyle,</span><br><span class="line">        ]&#125;</span><br><span class="line">        &gt;&#123;label&#125;</span><br><span class="line">          &#123; required ? &lt;Text style=&#123;&#123; fontSize: 16, fontWeight: 'bold', color: '#F00' &#125;&#125;&gt;*&lt;/Text&gt; : <span class="literal">null</span> &#125;</span><br><span class="line">        &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &#123; this._renderInputContent() &#125;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Input;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjiiwbmj10001m3jhzqx43ihx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/06/17/react-native实现字符串样式分割组件/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react-native实现字符串样式分割组件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/06/17/react-native自定义按钮/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">react-native自定义按钮</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/06/17/react-native实现字符串样式分割组件/">react-native实现字符串样式分割组件</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/17/react-native自定义文本输入框/">react-native自定义文本输入框</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/17/react-native自定义按钮/">react-native自定义按钮</a>
+          </li>
+        
+          <li>
+            <a href="/2018/06/17/基于react开发的可伸缩tabs/">基于react开发的可伸缩tabs</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jkwu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
