@@ -65,7 +65,7 @@
     <article id="post-react-native应用集成地理逆编码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/06/react-native应用集成地理逆编码/" class="article-date">
-  <time datetime="2018-07-06T14:50:42.080Z" itemprop="datePublished">2018-07-06</time>
+  <time datetime="2018-07-06T14:56:36.200Z" itemprop="datePublished">2018-07-06</time>
 </a>
     
   </div>
@@ -116,7 +116,7 @@
 </li>
 </ul>
 <p>其中<code>initialPosition</code>和<code>lastPosition</code>的对象内容一直，只不过一个是初始化的时候的经纬度信息，一个是当前最新的经纬度信息，其返回结果如下所示：   </p>
-<center><br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-geolocation-result.png?raw=true" width="35%" height="25%"><br>geolocation数据结构<br></center>
+<center><br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-geolocation-result.png?raw=true" width="45%" height="35%"><br>geolocation数据结构<br></center>
 
 <p>注意：在上面代码中，navigator.geolocation指的不是导航器，而是Geolocation的一个类，能够获取到定位的经纬度信息<br> 我分别使用代码，进行了两种api的调用，如下代码：</p>
 <h6 id="2-高德逆地理解析"><a href="#2-高德逆地理解析" class="headerlink" title="2.高德逆地理解析"></a>2.高德逆地理解析</h6><p>在高德逆地理解析中，需要首先进行获取高德账号Key。<br>参考下面文章即可：<a href="http://lbs.amap.com/api/webservice/guide/api/georegeo" target="_blank" rel="noopener">高德key的申请及使用说明</a><br>创建界面如下所示，在创建时我们选择<code>web服务</code>选项：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-amap.png?raw=true" alt="amap"><br>在获取key之后，我们就可以说是所有要准备的东西都已经准备好了，也就是有了Geolocation获取的经纬度，也有了能够正常访问的逆地理解析API，那我们就将<br>经纬度进行介绍，<br>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
@@ -135,7 +135,7 @@
 <li><p>4.高德API请求参数和响应参数说明<br> 可参考官方文档—<a href="https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo" target="_blank" rel="noopener">https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo</a></p>
 <h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取<br>逆地理解析的详细信息了，如下所示：<br>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
 </li>
-<li>1.输入的url<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//api.map.baidu.com/geocoder/v2/?location=30.1128606254,120.1969860408&amp;output=json&amp;pois=1&amp;ak=百度申请的ak</span></span><br></pre></td></tr></table></figure>
+<li>1.输入的url  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//api.map.baidu.com/geocoder/v2/?location=30.1128606254,120.1969860408&amp;output=json&amp;pois=1&amp;ak=百度申请的ak</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>注意：上面的ak需要进行修改为自己的ak，才能够进行访问到数据，同时，为了能够获取到数据，先将ip白名单设置为<code>0.0.0.0/0</code>,如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/white_ip.png?raw=true" alt="url地址"></p>
@@ -143,7 +143,7 @@
 <li><p>2.回车之后获取的数据界面<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/url_result.png?raw=true" alt="结果数据"></p>
 <p><code>#注意#：如上所示，能够通过浏览器访问到数据，则说明接口可以正常使用，也就是我们可以通过自己的请求进行请求数据了</code>    </p>
 </li>
-<li><p>3.如下为完整请求过程</p>
+<li><p>3.如下为完整请求过程       </p>
 </li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">_getAddress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 经度：positionData.longitude</span></span><br><span class="line">  <span class="comment">// 纬度：positionData.latitude</span></span><br><span class="line">  <span class="comment">// 最后一步 todo：百度地图逆地理编码转</span></span><br><span class="line">  <span class="comment">// lat&lt;纬度&gt;,lng&lt;经度&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="keyword">const</span> baiduLocationConfig = &#123;</span><br><span class="line">    <span class="comment">// callback: 'renderReverse',</span></span><br><span class="line">    ak: <span class="string">'这里填写你自己申请的ak，我的就不让你用了'</span>,</span><br><span class="line">    pois: <span class="number">1</span>,</span><br><span class="line">    output: <span class="string">'json'</span>,</span><br><span class="line">    latest_admin: <span class="number">1</span>,</span><br><span class="line">    language_auto: <span class="number">1</span>,</span><br><span class="line">    extensions_town: <span class="literal">true</span>,</span><br><span class="line">    extensions_road: <span class="literal">true</span>,</span><br><span class="line">    radius: <span class="number">1000</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> baiduLocationURL = <span class="string">'https://api.map.baidu.com/geocoder/v2/'</span>; <span class="comment">//GET请求</span></span><br><span class="line">  <span class="comment">// callback=renderReverse&amp;location=35.658651,139.745415&amp;output=json&amp;pois=1&amp;ak=您的ak</span></span><br><span class="line"> </span><br><span class="line">  <span class="keyword">const</span> &#123; lastPosition &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">  <span class="keyword">if</span> (!lastPosition) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; longitude, latitude &#125; = lastPosition &amp;&amp; lastPosition.coords;</span><br><span class="line">  <span class="keyword">const</span> location = latitude + <span class="string">','</span> + longitude;</span><br><span class="line">  <span class="keyword">const</span> baiduUrl = baiduLocationURL + <span class="string">'?'</span> + Qs.stringify(&#123; ...baiduLocationConfig &#125;) + <span class="string">'&amp;location='</span> + location;</span><br><span class="line"> </span><br><span class="line">  InteractionManager.runAfterInteractions(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    gaxios(baiduUrl)</span><br><span class="line">      .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          address: response</span><br><span class="line">        &#125;, () =&gt; &#123;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'获取地址信息出错'</span>, err);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
@@ -159,7 +159,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjja3knn700006hjhtamefmb3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjja3rjys00047fjhgxukjxfp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjja3knno000b6hjhmmz5yi20" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjja3rjyw000a7fjhd0ab3wbf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +236,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjja3knnb00016hjhyib2fmam" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjja3rjyj00007fjhingdnjzq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -319,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjja3knnd00026hjhrk8zf7j9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjja3rjyq00037fjh4gegyiii" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -419,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjja3knnh00046hjhxg6xsffg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjja3rjyn00017fjhxd895byx" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -548,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjja3knnk00066hjh0mlqsay1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjja3rjyv00087fjhdfzmzlb2" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -654,7 +654,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjja3knni00056hjhns1danwa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjja3rjyt00057fjhfd07mqnj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -806,7 +806,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjja3knnm00096hjhs4tb40d3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjja3rjyy000d7fjhyp7rmweq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
