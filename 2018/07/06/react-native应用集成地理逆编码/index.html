@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/url_result.png?raw=true">
 <meta property="og:image" content="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-amap.gif?raw=true">
 <meta property="og:image" content="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-baidu.gif?raw=true">
-<meta property="og:updated_time" content="2018-07-06T14:56:36.200Z">
+<meta property="og:updated_time" content="2018-07-06T15:08:31.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="suwu150">
 <meta name="twitter:description" content="title: react-native应用集成地理逆编码date: 2018-06-24 19:13:17 tags: react-native一、背景   最近，在项目中需要集成定位功能，在网上搜集资料之后，决定采用逆地理定位功能进行实现，那么让我们看看逆地理定位功能是怎么实现   的。 二、思路  主要过程分为两部分:    (1):一是获取定位点的经纬度;    (2):二是使用一步骤获取">
@@ -76,7 +76,7 @@
         <section id="main"><article id="post-react-native应用集成地理逆编码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/06/react-native应用集成地理逆编码/" class="article-date">
-  <time datetime="2018-07-06T14:56:36.200Z" itemprop="datePublished">2018-07-06</time>
+  <time datetime="2018-07-06T15:08:31.088Z" itemprop="datePublished">2018-07-06</time>
 </a>
     
   </div>
@@ -144,8 +144,11 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">_getAddress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 经度：positionData.longitude</span></span><br><span class="line">    <span class="comment">// 纬度：positionData.latitude</span></span><br><span class="line">    <span class="comment">// 最后一步 todo：高德逆地理编码转</span></span><br><span class="line">    <span class="comment">// lat&lt;纬度&gt;,lng&lt;经度&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> aMapLocationConfig = &#123;</span><br><span class="line">      key: <span class="string">'这里填写你自己申请的key，我的就不让你用了'</span>,</span><br><span class="line">      poitype: <span class="string">'all'</span>,</span><br><span class="line">      radius: <span class="number">3000</span>,</span><br><span class="line">      output: <span class="string">'json'</span>,</span><br><span class="line">      extensions: <span class="string">'all'</span>,</span><br><span class="line">      roadlevel: <span class="number">0</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> aMapLocationURL = <span class="string">'https://restapi.amap.com/v3/geocode/regeo'</span>; <span class="comment">//GET请求</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// callback=renderReverse&amp;location=35.658651,139.745415&amp;output=json&amp;pois=1&amp;ak=您的ak</span></span><br><span class="line">    <span class="comment">// radius=3000&amp;output=json&amp;extensions=all&amp;roadlevel=all&amp;location=30.11286062,120.19698604</span></span><br><span class="line">    <span class="comment">// ?output=xml&amp;location=116.310003,39.991957&amp;key=&lt;用户的key&gt;&amp;radius=1000&amp;extensions=all</span></span><br><span class="line">    <span class="keyword">const</span> &#123; lastPosition &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">if</span> (!lastPosition) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">const</span> &#123; longitude, latitude &#125; = lastPosition.coords;</span><br><span class="line">    <span class="keyword">const</span> location = longitude + <span class="string">','</span> + latitude;</span><br><span class="line">    <span class="keyword">const</span> aMapUrl = aMapLocationURL + <span class="string">'?'</span> + Qs.stringify(&#123; ...aMapLocationConfig &#125;) + <span class="string">'&amp;location='</span> + location;</span><br><span class="line"></span><br><span class="line">    InteractionManager.runAfterInteractions(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      gaxios(aMapUrl)</span><br><span class="line">        .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            address: response</span><br><span class="line">          &#125;, () =&gt; &#123;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'获取地址信息出错'</span> + error);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>4.高德API请求参数和响应参数说明<br> 可参考官方文档—<a href="https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo" target="_blank" rel="noopener">https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo</a></p>
-<h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取<br>逆地理解析的详细信息了，如下所示：<br>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取逆地理解析的详细信息了，如下所示：</p>
 </li>
+</ul>
+<p>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<ul>
 <li>1.输入的url  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//api.map.baidu.com/geocoder/v2/?location=30.1128606254,120.1969860408&amp;output=json&amp;pois=1&amp;ak=百度申请的ak</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -170,7 +173,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjja3rjys00047fjhgxukjxfp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjje0dt3t00052jpik6i0uakk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -178,6 +181,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle
+        
+      </div>
+    </a>
   
   
     <a href="/2018/07/04/基于react-native实现情侣小游戏/" id="article-nav-older" class="article-nav-link-wrap">
@@ -201,7 +213,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
     </div>
   </div>
 
@@ -211,7 +223,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
     </div>
   </div>
 
@@ -233,6 +245,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/06/react-native应用集成地理逆编码/">(no title)</a>
           </li>
         
@@ -246,10 +262,6 @@
         
           <li>
             <a href="/2018/06/18/react-native实现树结构选择组件/">react-native实现树结构选择组件</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/17/react-native实现字符串样式分割组件/">react-native实现字符串样式分割组件</a>
           </li>
         
       </ul>

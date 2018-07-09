@@ -62,10 +62,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" class="article-date">
+  <time datetime="2018-07-09T06:28:21.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle"><a href="#Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle" class="headerlink" title="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle"></a>Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</h4><h5 id="1-错误"><a href="#1-错误" class="headerlink" title="1.错误"></a>1.错误</h5><p>Configuration on demand is not supported by the current version of the Android Gradle plugin since you are using Gradle version 4.6 or above.?<br>Suggestion: disable configuration on demand by setting org.gradle.configureondemand=false in your gradle.properties file or use a Gradle version less than 4.6.</p>
+<h5 id="2-翻译"><a href="#2-翻译" class="headerlink" title="2.翻译"></a>2.翻译</h5><p>由于使用你正在使用 Gradle版本4.6或以上，当前版本的Android的Gradle插件不支持按需配置。<br>建议：通过在你的<code>gradle.properties</code> 文件中设置 <code>org.gradle.configureondemand=false</code> 禁用按需配置，或者使用一个低于4.6版本的Gradle。</p>
+<h5 id="3-解决方法一：降级"><a href="#3-解决方法一：降级" class="headerlink" title="3.解决方法一：降级"></a>3.解决方法一：降级</h5><p>打开 <code>gradle-wrapper.properties</code> 文件，修改distributionUrl 参数，将其后面修改为低于4.6版本的 Gradle。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.5-all.zip</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><p>org.gradle.configureondemand=true<br>修改为<br>org.gradle.configureondemand=false<br>或删除该语句，或注释掉该语句。</p>
+<h6 id="2、通过-File-菜单，点击-Settings打开设置。"><a href="#2、通过-File-菜单，点击-Settings打开设置。" class="headerlink" title="2、通过 File 菜单，点击 Settings打开设置。"></a>2、通过 File 菜单，点击 Settings打开设置。</h6><h6 id="3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。"><a href="#3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。" class="headerlink" title="3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。"></a>3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。</h6><p>如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true" alt="去除"></p>
+<p>【注意事项】<br>方法2中，第一步的 <code>gradle.properties</code> 文件，共有两个：Global Properties 和 Project Properties，全都需要修改。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjje0dt3j00002jpipcxtk4wi" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-react-native应用集成地理逆编码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/06/react-native应用集成地理逆编码/" class="article-date">
-  <time datetime="2018-07-06T14:56:36.200Z" itemprop="datePublished">2018-07-06</time>
+  <time datetime="2018-07-06T15:08:31.088Z" itemprop="datePublished">2018-07-06</time>
 </a>
     
   </div>
@@ -133,8 +177,11 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">_getAddress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 经度：positionData.longitude</span></span><br><span class="line">    <span class="comment">// 纬度：positionData.latitude</span></span><br><span class="line">    <span class="comment">// 最后一步 todo：高德逆地理编码转</span></span><br><span class="line">    <span class="comment">// lat&lt;纬度&gt;,lng&lt;经度&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> aMapLocationConfig = &#123;</span><br><span class="line">      key: <span class="string">'这里填写你自己申请的key，我的就不让你用了'</span>,</span><br><span class="line">      poitype: <span class="string">'all'</span>,</span><br><span class="line">      radius: <span class="number">3000</span>,</span><br><span class="line">      output: <span class="string">'json'</span>,</span><br><span class="line">      extensions: <span class="string">'all'</span>,</span><br><span class="line">      roadlevel: <span class="number">0</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> aMapLocationURL = <span class="string">'https://restapi.amap.com/v3/geocode/regeo'</span>; <span class="comment">//GET请求</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// callback=renderReverse&amp;location=35.658651,139.745415&amp;output=json&amp;pois=1&amp;ak=您的ak</span></span><br><span class="line">    <span class="comment">// radius=3000&amp;output=json&amp;extensions=all&amp;roadlevel=all&amp;location=30.11286062,120.19698604</span></span><br><span class="line">    <span class="comment">// ?output=xml&amp;location=116.310003,39.991957&amp;key=&lt;用户的key&gt;&amp;radius=1000&amp;extensions=all</span></span><br><span class="line">    <span class="keyword">const</span> &#123; lastPosition &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">if</span> (!lastPosition) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">const</span> &#123; longitude, latitude &#125; = lastPosition.coords;</span><br><span class="line">    <span class="keyword">const</span> location = longitude + <span class="string">','</span> + latitude;</span><br><span class="line">    <span class="keyword">const</span> aMapUrl = aMapLocationURL + <span class="string">'?'</span> + Qs.stringify(&#123; ...aMapLocationConfig &#125;) + <span class="string">'&amp;location='</span> + location;</span><br><span class="line"></span><br><span class="line">    InteractionManager.runAfterInteractions(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      gaxios(aMapUrl)</span><br><span class="line">        .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            address: response</span><br><span class="line">          &#125;, () =&gt; &#123;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'获取地址信息出错'</span> + error);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>4.高德API请求参数和响应参数说明<br> 可参考官方文档—<a href="https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo" target="_blank" rel="noopener">https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo</a></p>
-<h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取<br>逆地理解析的详细信息了，如下所示：<br>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取逆地理解析的详细信息了，如下所示：</p>
 </li>
+</ul>
+<p>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<ul>
 <li>1.输入的url  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//api.map.baidu.com/geocoder/v2/?location=30.1128606254,120.1969860408&amp;output=json&amp;pois=1&amp;ak=百度申请的ak</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -159,7 +206,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjja3rjys00047fjhgxukjxfp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjje0dt3t00052jpik6i0uakk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -200,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjja3rjyw000a7fjhd0ab3wbf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjje0dt40000e2jpi8r6mroa5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -236,7 +283,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjja3rjyj00007fjhingdnjzq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjje0dt3n00012jpihtemy9w7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -319,7 +366,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjja3rjyq00037fjh4gegyiii" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjje0dt3s00042jpi8u0942sh" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -419,7 +466,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjja3rjyn00017fjhxd895byx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjje0dt3r00032jpicf0ps9fz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -548,7 +595,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjja3rjyv00087fjhdfzmzlb2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjje0dt3w00092jpit7ofe12n" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -654,7 +701,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjja3rjyt00057fjhfd07mqnj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjje0dt3v00082jpi31zseeyq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -806,7 +853,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjja3rjyy000d7fjhyp7rmweq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjje0dt3y000c2jpihmuhftik" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
@@ -831,7 +878,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
     </div>
   </div>
 
@@ -841,7 +888,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
     </div>
   </div>
 
@@ -863,6 +910,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/06/react-native应用集成地理逆编码/">(no title)</a>
           </li>
         
@@ -876,10 +927,6 @@
         
           <li>
             <a href="/2018/06/18/react-native实现树结构选择组件/">react-native实现树结构选择组件</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/17/react-native实现字符串样式分割组件/">react-native实现字符串样式分割组件</a>
           </li>
         
       </ul>
