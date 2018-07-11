@@ -16,7 +16,7 @@
 <meta property="og:description" content="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle1.错误Configuration on demand is not supported by the current version of the Android Gradle plugin s">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true">
-<meta property="og:updated_time" content="2018-07-09T08:32:23.389Z">
+<meta property="og:updated_time" content="2018-07-09T08:37:38.910Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle">
 <meta name="twitter:description" content="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle1.错误Configuration on demand is not supported by the current version of the Android Gradle plugin s">
@@ -92,14 +92,15 @@
         <h4 id="Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle"><a href="#Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle" class="headerlink" title="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle"></a>Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</h4><h5 id="1-错误"><a href="#1-错误" class="headerlink" title="1.错误"></a>1.错误</h5><p>Configuration on demand is not supported by the current version of the Android Gradle plugin since you are using Gradle version 4.6 or above.?<br>Suggestion: disable configuration on demand by setting org.gradle.configureondemand=false in your gradle.properties file or use a Gradle version less than 4.6.</p>
 <h5 id="2-翻译"><a href="#2-翻译" class="headerlink" title="2.翻译"></a>2.翻译</h5><p>由于使用你正在使用 Gradle版本4.6或以上，当前版本的Android的Gradle插件不支持按需配置。<br>建议：通过在你的<code>gradle.properties</code> 文件中设置 <code>org.gradle.configureondemand=false</code> 禁用按需配置，或者使用一个低于4.6版本的Gradle。</p>
 <h5 id="3-解决方法一：降级"><a href="#3-解决方法一：降级" class="headerlink" title="3.解决方法一：降级"></a>3.解决方法一：降级</h5><p>打开 <code>gradle-wrapper.properties</code> 文件，修改distributionUrl 参数，将其后面修改为低于4.6版本的 Gradle。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.5-all.zip</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><p>org.gradle.configureondemand=true<br>修改为<br>org.gradle.configureondemand=false<br>或删除该语句，或注释掉该语句。</p>
+<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">修改为</span><br><span class="line"></span><br><span class="line">```org.gradle.configureondemand=false</span><br></pre></td></tr></table></figure>
+<p>或删除该语句，或注释掉该语句。</p>
 <h6 id="2、通过-File-菜单，点击-Settings打开设置。"><a href="#2、通过-File-菜单，点击-Settings打开设置。" class="headerlink" title="2、通过 File 菜单，点击 Settings打开设置。"></a>2、通过 File 菜单，点击 Settings打开设置。</h6><h6 id="3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。"><a href="#3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。" class="headerlink" title="3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。"></a>3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。</h6><p>如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true" alt="去除"></p>
 <p>【注意事项】<br>方法2中，第一步的 <code>gradle.properties</code> 文件，共有两个：Global Properties 和 Project Properties，全都需要修改。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjje0dt3j00002jpipcxtk4wi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjjh5qw5o0001s2jh7s8ee9sk" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -110,8 +111,17 @@
     
 <nav id="article-nav">
   
+    <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          react-native打包Android应用问题及安装汇总
+        
+      </div>
+    </a>
   
-    <a href="/2018/07/06/react-native应用集成地理逆编码/" id="article-nav-older" class="article-nav-link-wrap">
+  
+    <a href="/2018/07/04/基于react-native实现情侣小游戏/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title"></div>
     </a>
@@ -142,7 +152,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
     </div>
   </div>
 
@@ -164,23 +174,23 @@
       <ul>
         
           <li>
+            <a href="/2018/07/11/react-native应用集成地理逆编码/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/06/react-native应用集成地理逆编码/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/04/基于react-native实现情侣小游戏/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/20/react-native中打包静态js/">rēact-native中打包静态j</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/18/react-native实现树结构选择组件/">react-native实现树结构选择组件</a>
           </li>
         
       </ul>

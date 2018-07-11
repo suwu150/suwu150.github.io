@@ -62,54 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" class="article-date">
-  <time datetime="2018-07-09T06:28:21.000Z" itemprop="datePublished">2018-07-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle"><a href="#Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle" class="headerlink" title="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle"></a>Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</h4><h5 id="1-错误"><a href="#1-错误" class="headerlink" title="1.错误"></a>1.错误</h5><p>Configuration on demand is not supported by the current version of the Android Gradle plugin since you are using Gradle version 4.6 or above.?<br>Suggestion: disable configuration on demand by setting org.gradle.configureondemand=false in your gradle.properties file or use a Gradle version less than 4.6.</p>
-<h5 id="2-翻译"><a href="#2-翻译" class="headerlink" title="2.翻译"></a>2.翻译</h5><p>由于使用你正在使用 Gradle版本4.6或以上，当前版本的Android的Gradle插件不支持按需配置。<br>建议：通过在你的<code>gradle.properties</code> 文件中设置 <code>org.gradle.configureondemand=false</code> 禁用按需配置，或者使用一个低于4.6版本的Gradle。</p>
-<h5 id="3-解决方法一：降级"><a href="#3-解决方法一：降级" class="headerlink" title="3.解决方法一：降级"></a>3.解决方法一：降级</h5><p>打开 <code>gradle-wrapper.properties</code> 文件，修改distributionUrl 参数，将其后面修改为低于4.6版本的 Gradle。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.5-all.zip</span></span><br></pre></td></tr></table></figure></p>
-<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><p>org.gradle.configureondemand=true<br>修改为<br>org.gradle.configureondemand=false<br>或删除该语句，或注释掉该语句。</p>
-<h6 id="2、通过-File-菜单，点击-Settings打开设置。"><a href="#2、通过-File-菜单，点击-Settings打开设置。" class="headerlink" title="2、通过 File 菜单，点击 Settings打开设置。"></a>2、通过 File 菜单，点击 Settings打开设置。</h6><h6 id="3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。"><a href="#3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。" class="headerlink" title="3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。"></a>3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。</h6><p>如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true" alt="去除"></p>
-<p>【注意事项】<br>方法2中，第一步的 <code>gradle.properties</code> 文件，共有两个：Global Properties 和 Project Properties，全都需要修改。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjje0dt3j00002jpipcxtk4wi" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-react-native应用集成地理逆编码" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/06/react-native应用集成地理逆编码/" class="article-date">
-  <time datetime="2018-07-06T15:08:31.088Z" itemprop="datePublished">2018-07-06</time>
+    <a href="/2018/07/11/react-native应用集成地理逆编码/" class="article-date">
+  <time datetime="2018-07-11T13:20:53.795Z" itemprop="datePublished">2018-07-11</time>
 </a>
     
   </div>
@@ -198,17 +154,234 @@
 <li>4.百度API请求参数和响应参数说明<br>可参考官方文档–<a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad</a><h5 id="四、效果展示"><a href="#四、效果展示" class="headerlink" title="四、效果展示"></a>四、效果展示</h5>发送请求之后，我们能够看到如下效果，在请求之后，我将请求到的数据进行了分类，进行对其中具体的字段进行了说明：<h6 id="1-高德地图请求效果"><a href="#1-高德地图请求效果" class="headerlink" title="1.高德地图请求效果"></a>1.高德地图请求效果</h6><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-amap.gif?raw=true" alt="高德效果展示"><h6 id="2-百度地图请求效果"><a href="#2-百度地图请求效果" class="headerlink" title="2.百度地图请求效果"></a>2.百度地图请求效果</h6><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-baidu.gif?raw=true" alt="百度效果展示"></li>
 </ul>
 <h5 id="五-演示代码github地址"><a href="#五-演示代码github地址" class="headerlink" title="五 演示代码github地址"></a>五 演示代码github地址</h5><p>GitHub地址：<a href="https://github.com/suwu150/react-native-locations" target="_blank" rel="noopener">https://github.com/suwu150/react-native-locations</a><br>，能够直接通过<code>git clone</code>进行克隆运行，运行命令如下所示：<br>1.克隆项目<br> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/suwu150/react-native-locations.git</span><br></pre></td></tr></table></figure></p>
-<p>2.进入项目，安装以来<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd react-native-locations</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>3.运行项目<br>  ios#：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure></p>
-<p> Android#:<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br></pre></td></tr></table></figure></p>
-<p>注意：在运行安卓项目的时候，必须手动打开模拟器     </p>
+<p>2.进入项目，安装依赖库文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd react-native-locations</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>3.运行项目<br>  ios：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure></p>
+<p> Android:<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br></pre></td></tr></table></figure></p>
+<p>注意：在运行安卓项目的时候，必须手动打开模拟器  </p>
+<hr>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/06/react-native应用集成地理逆编码/" data-id="cjje0dt3t00052jpik6i0uakk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/11/react-native应用集成地理逆编码/" data-id="cjjh5qw60000es2jhcaliuyo1" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android中gradlew命令的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/Android中gradlew命令的基本使用/" class="article-date">
+  <time datetime="2018-07-10T08:18:01.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML<br>的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。</p>
+<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件，当然你也可以通过 -b 参数指定<br>想要加载执行的文件<br>下面进行对android项目进行分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── app #Android App目录</span><br><span class="line">│   ├── app.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── module #Android 另外一个module目录</span><br><span class="line">│   ├── module.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── build</span><br><span class="line">│   └── intermediates</span><br><span class="line">├── build.gradle #工程构建文件</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">├── gradle.properties #gradle的配置</span><br><span class="line">├── gradlew #gradle wrapper linux shell脚本</span><br><span class="line">├── gradlew.bat</span><br><span class="line">├── LibSqlite.iml</span><br><span class="line">├── local.properties #配置Androod SDK位置文件</span><br><span class="line">└── settings.gradle #工程配置</span><br></pre></td></tr></table></figure>
+<p>gradlew 命令就是 gradle wrapper，是gradle的一个包装，可以理解为在这个项目本地就封装了gradle，<br>比如我的安卓项目是LoveYouDeeply, 在LoveYouDeeply/gradle/wrapper/gralde-wrapper.properties文件中声明了它指向的目录和版本，比如我的内容是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Sun May 13 12:31:41 CST 2018</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.6-all.zip</span></span><br></pre></td></tr></table></figure>
+<p>如果你项目没有该文件的话，那么gradlew会到 ~/.gradle/wrapper/dists/gradle-xxx 下寻找，或者你新建给文件，内容复制到里面。其实你会发现是同一个目录咯。里面会有个随机数的文件夹，里面就是gradle，只要下载成功即可用grdlew wrapper的命令代替全局的gradle命令。</p>
+<p>常用命令如下：(linux下是./gradlew，该脚本在项目下，windows直接gradlew即可)</p>
+<ul>
+<li><p>./gradlew -v 版本号，首次运行，没有gradle的要下载的哦。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ./gradlew -v</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle <span class="number">4.6</span></span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   <span class="number">2018</span><span class="number">-02</span><span class="number">-28</span> <span class="number">13</span>:<span class="number">36</span>:<span class="number">36</span> UTC</span><br><span class="line">Revision:     <span class="number">8</span>fa6ce7945b640e6168488e4417f9bb96e4ab46c</span><br><span class="line"></span><br><span class="line">Groovy:       <span class="number">2.4</span><span class="number">.12</span></span><br><span class="line">Ant:          Apache Ant(TM) version <span class="number">1.9</span><span class="number">.9</span> compiled on February <span class="number">2</span> <span class="number">2017</span></span><br><span class="line">JVM:          <span class="number">1.8</span><span class="number">.0</span>_171 (Oracle Corporation <span class="number">25.171</span>-b11)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>./gradlew clean 删除项目LoveYouDeeply/app目录下的build文件夹</p>
+</li>
+<li><p>./gradlew build 检查依赖并编译打包</p>
+<ul>
+<li>这里注意的是 ./gradlew build 命令把debug、release环境的包都打出来，生成的包在目录LoveYouDeeply/app/build/outputs/apk/下。如果正式发布只需要打release的包，该怎么办呢，下面介绍一个很有用的命令 assemble, 如</li>
+</ul>
+</li>
+<li><p>./gradlew assembleDebug 编译并打Debug包</p>
+</li>
+<li><p>./gradlew assemblexiaomiDebug 编译并打xiaomi的debug包，其他类似</p>
+</li>
+<li><p>./gradlew assembleRelease 编译并打Release的包</p>
+</li>
+<li><p>./gradlew assemblexiaomiRelease 编译并打xiaomi的Release包，其他类似</p>
+</li>
+<li><p>./gradlew installRelease Release模式打包并安装</p>
+</li>
+<li><p>./gradlew uninstallRelease 卸载Release模式包</p>
+</li>
+</ul>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><h6 id="1-gradlew-build-和-gradle-build-有区别吗"><a href="#1-gradlew-build-和-gradle-build-有区别吗" class="headerlink" title="1 gradlew build 和 gradle build 有区别吗?"></a>1 gradlew build 和 gradle build 有区别吗?</h6><p>使用gradle wrapper是gradle官方推荐的build方式，而gradlew正是运行了wrapper task之后生成的（运行wrapper task是Android Studio自动做的）。使用gralde wrapper的一个好处就是每个项目可以依赖不同版本的gradle，构建的时候gradle wrapper会帮你自动下载所依赖的版本的gradle。而如果你使用gradle build的话，同时你又有多个项目使用不同版本的gradle，那就需要你手动在自己的机器上配置多个版本的gradle，稍微麻烦一些</p>
+<h6 id="2-自定义apk包名"><a href="#2-自定义apk包名" class="headerlink" title="2 自定义apk包名"></a>2 自定义apk包名</h6><p>gradle脚本可以使用下面方法进行命名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def releaseTime() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().format(<span class="string">"yyyy-MM-dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义apk安装包名</span></span><br><span class="line">    <span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">    applicationVariants.all &#123; variant -&gt;</span><br><span class="line">        variant.outputs.each &#123; output -&gt;</span><br><span class="line">            <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">            <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">            <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">            <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">            <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">            <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">            <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            def outputFile = output.outputFile</span><br><span class="line">            def fileName</span><br><span class="line">            <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">                &#125;</span><br><span class="line">                output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意： 在Gradle 4.6中，应该采用下面的写法,而不是直接修改output<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">android.applicationVariants.all &#123; variant -&gt;</span><br><span class="line">    variant.outputs.all &#123; output -&gt;</span><br><span class="line">        <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">        <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">        <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">        <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">        <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">        <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">        <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        def fileName</span><br><span class="line">        <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">            &#125;</span><br><span class="line">            outputFileName = fileName;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/" data-id="cjjh5qw5j0000s2jhgvduku34" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-native修改应用启动页" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/react-native修改应用启动页/" class="article-date">
+  <time datetime="2018-07-10T08:09:52.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/react-native修改应用启动页/" data-id="cjjh5qw5t0004s2jh0fmxspca" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-native打包Android应用问题及安装汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/" class="article-date">
+  <time datetime="2018-07-10T01:36:34.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-应用未安装"><a href="#1-应用未安装" class="headerlink" title="1. 应用未安装"></a>1. 应用未安装</h5><ul>
+<li>问题：在安装apk安装包的时候，会出现<code>应用未安装</code>的提示</li>
+<li>解决方法： 删掉手机上已经安装过的apk，进行重新安装即可</li>
+<li>原因分析： 是由于签名问题，在程序中包名一致，但是签名不同就会出现不能安装问题</li>
+</ul>
+<h5 id="2-很抱歉，程序出现异常，即将退出"><a href="#2-很抱歉，程序出现异常，即将退出" class="headerlink" title="2. 很抱歉，程序出现异常，即将退出"></a>2. 很抱歉，程序出现异常，即将退出</h5><ul>
+<li>问题：在打开程序的时候，会出现<code>很抱歉，程序出现异常，即将退出</code>的提示，然后退出程序</li>
+<li><p>现象：在android日志中能够看到下面日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">07-10 19:05:07.446 12390-12436/? E/ReactNativeJS: undefined is not an object (evaluating &apos;s.View.propTypes.style&apos;)</span><br><span class="line">07-10 19:05:07.455 12390-12436/? E/ReactNativeJS: Application Lova has not been registered.</span><br><span class="line"></span><br><span class="line">    Hint: This error often happens when you&apos;re running the packager (local dev server) from a wrong folder. For example you have multiple apps and the packager is still running for the app you were working on before.</span><br><span class="line">    If this is the case, simply kill the old packager instance (e.g. close the packager terminal window) and start the packager in the correct app folder (e.g. cd into app folder and run &apos;npm start&apos;).</span><br><span class="line"></span><br><span class="line">    This error can also happen due to a require() error during initialization or failure to call AppRegistry.registerComponent.</span><br><span class="line">07-10 19:05:08.012 1003-1271/? E/WifiStateMachine:  ConnectedState (when=-5ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:2983] from screen [on:0 period:-2082616660] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">07-10 19:05:08.015 1003-1271/? E/WifiStateMachine:  L2ConnectedState (when=-8ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:3] from screen [on:0 period:-2082616657] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">     get link layer stats 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法：——————————-没有解决暂时，—–</p>
+</li>
+</ul>
+<h5 id="3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’"><a href="#3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’" class="headerlink" title="3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’"></a>3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’</h5><ul>
+<li>问题：</li>
+<li>解决方法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">applicationVariants.all &#123; variant -&gt; </span><br><span class="line">    variant.outputs.each &#123; output -&gt;</span><br><span class="line">        def SEP = <span class="string">"_"</span></span><br><span class="line">        def flavor = variant.productFlavors[<span class="number">0</span>].name</span><br><span class="line">        def buildType = </span><br><span class="line">        variant.variantData.variantConfiguration.buildType.name</span><br><span class="line">        def version = variant.versionName</span><br><span class="line">        def date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">        def formattedDate = date.format(<span class="string">'ddMMyy_HHmm'</span>)</span><br><span class="line">        def newApkName = PROJECT_NAME + SEP + flavor + SEP + buildType + SEP + version + SEP + formattedDate + <span class="string">".apk"</span></span><br><span class="line">        def file = <span class="keyword">new</span> File(newApkName)</span><br><span class="line">        output.outputFile = file</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改为：<br>Use all() instead of each()<br>Use outputFileName instead of output.outputFile if you change only file name (that is your case)<br>Example from the guide:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If you use each() to iterate through the variant objects,</span></span><br><span class="line"><span class="comment">// you need to start using all(). That's because each() iterates</span></span><br><span class="line"><span class="comment">// through only the objects that already exist during configuration time—</span></span><br><span class="line"><span class="comment">// but those object don't exist at configuration time with the new model.</span></span><br><span class="line"><span class="comment">// However, all() adapts to the new model by picking up object as they are</span></span><br><span class="line"><span class="comment">// added during execution.</span></span><br><span class="line">android.applicationVariants.all &#123; variant -&gt;</span><br><span class="line">    variant.outputs.all &#123;</span><br><span class="line">        outputFileName = <span class="string">"$&#123;variant.name&#125;-$&#123;variant.versionName&#125;.apk"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>原因分析： 版本更新导致的问题</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjh5qw5y0009s2jhhkc7oirp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" class="article-date">
+  <time datetime="2018-07-09T06:28:21.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle"><a href="#Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle" class="headerlink" title="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle"></a>Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</h4><h5 id="1-错误"><a href="#1-错误" class="headerlink" title="1.错误"></a>1.错误</h5><p>Configuration on demand is not supported by the current version of the Android Gradle plugin since you are using Gradle version 4.6 or above.?<br>Suggestion: disable configuration on demand by setting org.gradle.configureondemand=false in your gradle.properties file or use a Gradle version less than 4.6.</p>
+<h5 id="2-翻译"><a href="#2-翻译" class="headerlink" title="2.翻译"></a>2.翻译</h5><p>由于使用你正在使用 Gradle版本4.6或以上，当前版本的Android的Gradle插件不支持按需配置。<br>建议：通过在你的<code>gradle.properties</code> 文件中设置 <code>org.gradle.configureondemand=false</code> 禁用按需配置，或者使用一个低于4.6版本的Gradle。</p>
+<h5 id="3-解决方法一：降级"><a href="#3-解决方法一：降级" class="headerlink" title="3.解决方法一：降级"></a>3.解决方法一：降级</h5><p>打开 <code>gradle-wrapper.properties</code> 文件，修改distributionUrl 参数，将其后面修改为低于4.6版本的 Gradle。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.5-all.zip</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">修改为</span><br><span class="line"></span><br><span class="line">```org.gradle.configureondemand=false</span><br></pre></td></tr></table></figure>
+<p>或删除该语句，或注释掉该语句。</p>
+<h6 id="2、通过-File-菜单，点击-Settings打开设置。"><a href="#2、通过-File-菜单，点击-Settings打开设置。" class="headerlink" title="2、通过 File 菜单，点击 Settings打开设置。"></a>2、通过 File 菜单，点击 Settings打开设置。</h6><h6 id="3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。"><a href="#3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。" class="headerlink" title="3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。"></a>3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。</h6><p>如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true" alt="去除"></p>
+<p>【注意事项】<br>方法2中，第一步的 <code>gradle.properties</code> 文件，共有两个：Global Properties 和 Project Properties，全都需要修改。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjjh5qw5o0001s2jh7s8ee9sk" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
     </footer>
   </div>
   
@@ -247,7 +420,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjje0dt40000e2jpi8r6mroa5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjjh5qw66000js2jhbwblsdvv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -271,7 +444,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/20/react-native中打包静态js/">rēact-native中打包静态j</a>
+      <a class="article-title" href="/2018/06/20/react-native中打包静态js/">rēact-native中打包静态js</a>
     </h1>
   
 
@@ -279,11 +452,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res/ --dev <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+        <p>在打包apk文件之前，我们需要将js文件代码和代码中使用的图片进行打包，然后提供给apk进行使用，打包命令行如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res/ --dev <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjje0dt3n00012jpihtemy9w7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjjh5qw5s0003s2jhtd9fk4cg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -366,7 +540,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjje0dt3s00042jpi8u0942sh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjjh5qw5w0008s2jhbhsegbi9" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -466,7 +640,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjje0dt3r00032jpicf0ps9fz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjjh5qw5u0005s2jhjyjj5t6v" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -595,7 +769,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjje0dt3w00092jpit7ofe12n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjjh5qw64000hs2jhnuzmy1xw" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -607,265 +781,12 @@
 
 
   
-    <article id="post-react-native自定义按钮" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/17/react-native自定义按钮/" class="article-date">
-  <time datetime="2018-06-17T12:27:59.000Z" itemprop="datePublished">2018-06-17</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/react-native自定义按钮/">react-native自定义按钮</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="The-final-rendering"><a href="#The-final-rendering" class="headerlink" title="The final rendering"></a>The final rendering</h2><p><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native-custome-button.gif?raw=true" alt="The final rendering"><br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native-custome-button-image.gif?raw=true" alt="The final rendering-image">          </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a>Description: </h2><p>A custom button component that should render nicely on any platform. Supports a minimal level of customization.     </p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation:  "></a>Installation:  </h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-customer-button</span><br></pre></td></tr></table></figure>
-<h2 id="Example-usage"><a href="#Example-usage" class="headerlink" title="Example usage: "></a>Example usage: </h2><p>1.basic     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Button from &apos;react-native-customer-button&apos;;</span><br><span class="line">   ...</span><br><span class="line">   _onPress = () =&gt; &#123;</span><br><span class="line">     console.log(&apos;onPress&apos;);</span><br><span class="line">   &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Button onPress=&#123;this._onPress&#125; /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props:   "></a>Props:   </h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Props</th>
-<th style="text-align:left">Explain</th>
-<th style="text-align:left">type</th>
-<th style="text-align:left">require</th>
-<th style="text-align:left">default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">onPress</td>
-<td style="text-align:left">handler to be called when the user taps the button</td>
-<td style="text-align:left">function</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
-</tr>
-<tr>
-<td style="text-align:left">title</td>
-<td style="text-align:left">text to display inside the button</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">ok</td>
-</tr>
-<tr>
-<td style="text-align:left">disabled</td>
-<td style="text-align:left">If true, disable all interactions for this component.</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left">style</td>
-<td style="text-align:left">button style,The style used to modify the button</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{ backgroundColor: ‘#43CCFF’,height: 30,width: 100,}</td>
-</tr>
-<tr>
-<td style="text-align:left">textStyle</td>
-<td style="text-align:left">The style of the text in the button</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{fontSize: 15, color: ‘#000000’}</td>
-</tr>
-<tr>
-<td style="text-align:left">icon</td>
-<td style="text-align:left">button icon file resource, resource file introduced by require</td>
-<td style="text-align:left">Image resources</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">no</td>
-</tr>
-<tr>
-<td style="text-align:left">iconStyle</td>
-<td style="text-align:left">Image’s style</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{}</td>
-</tr>
-</tbody>
-</table>
-<p>Examples from props:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">       &lt;Text style=&#123;&#123; <span class="attr">marginBottom</span>: <span class="number">10</span> &#125;&#125;&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">       &lt;Button</span></span><br><span class="line"><span class="regexp">         style=&#123;&#123; marginBottom: 5 &#125;&#125;</span></span><br><span class="line"><span class="regexp">         onPress=&#123;() =&gt; this.setState(&#123; count: this.state.count + 1 &#125;)&#125;</span></span><br><span class="line"><span class="regexp">       /</span>&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'cancel'</span>&#125;</span><br><span class="line">         style=&#123;&#123; <span class="attr">marginBottom</span>: <span class="number">5</span> &#125;&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'cancel'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'submit'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'white font'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         textStyle=&#123;&#123;</span><br><span class="line">           color: <span class="string">'#fff'</span>,</span><br><span class="line">           fontSize: <span class="number">16</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         underlayColor=&#123;<span class="string">'#ff0'</span>&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'white font'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         textStyle=&#123;&#123;</span><br><span class="line">           color: <span class="string">'#fff'</span>,</span><br><span class="line">           fontSize: <span class="number">16</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         icon=&#123;<span class="built_in">require</span>(<span class="string">'../constants/icon_user.png'</span>)&#125;</span><br><span class="line">         underlayColor=&#123;<span class="string">'#ff0'</span>&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">     &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">   );</span></span><br><span class="line"><span class="regexp"> &#125;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  ViewPropTypes,</span><br><span class="line">  TouchableOpacity,</span><br><span class="line">  TouchableHighlight,</span><br><span class="line">  Text,</span><br><span class="line">  View,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Image</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> NoDoublePress = &#123;</span><br><span class="line">  lastPressTime: <span class="number">1</span>,</span><br><span class="line">  onPress(callback) &#123;</span><br><span class="line">    <span class="keyword">const</span> curTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> (curTime - <span class="keyword">this</span>.lastPressTime &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.lastPressTime = curTime;</span><br><span class="line">      callback();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  defaultStyle: &#123;</span><br><span class="line">    backgroundColor: <span class="string">'#43CCFF'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    height: <span class="number">30</span>,</span><br><span class="line">    width: <span class="number">100</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  defaultTouchStyle: &#123;</span><br><span class="line">    width: <span class="string">'100%'</span>,</span><br><span class="line">    height: <span class="string">'100%'</span>,</span><br><span class="line">    flexDirection: <span class="string">'row'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  defaultTextStyle: &#123;</span><br><span class="line">    fontSize: <span class="number">15</span>,</span><br><span class="line">    color: <span class="string">'#000000'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  defaultRowContainer: &#123;</span><br><span class="line">    flexDirection: <span class="string">'row'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RNButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    title: PropTypes.string,</span><br><span class="line">    style: ViewPropTypes.style,</span><br><span class="line">    underlayColor: PropTypes.string,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    title: <span class="string">'ok'</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  onPress = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    NoDoublePress.onPress(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.onPress &amp;&amp; <span class="keyword">this</span>.props.onPress(e);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  renderIcon = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; icon, iconStyle = &#123;&#125; &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Image source=&#123;icon&#125; style=&#123;iconStyle&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; title &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.underlayColor) &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;View style=&#123;[styles.defaultStyle, <span class="keyword">this</span>.props.style]&#125;&gt;</span><br><span class="line">          &lt;TouchableHighlight</span><br><span class="line">            style=&#123;[styles.defaultTouchStyle]&#125;</span><br><span class="line">            onPress=&#123;<span class="keyword">this</span>.onPress&#125;</span><br><span class="line">            underlayColor=&#123;<span class="keyword">this</span>.props.underlayColor&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;View style=&#123;styles.defaultRowContainer&#125;&gt;</span><br><span class="line">              &#123;<span class="keyword">this</span>.renderIcon()&#125;</span><br><span class="line">              &lt;Text</span><br><span class="line">                style=&#123;[styles.defaultTextStyle, <span class="keyword">this</span>.props.textStyle]&#125;</span><br><span class="line">              &gt;</span><br><span class="line">                &#123;<span class="keyword">this</span>.props.title&#125;</span><br><span class="line">              &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>View&gt;</span><br><span class="line">          &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;[styles.defaultStyle, <span class="keyword">this</span>.props.style]&#125;&gt;</span><br><span class="line">        &lt;TouchableOpacity</span><br><span class="line">          style=&#123;[styles.defaultTouchStyle]&#125;</span><br><span class="line">          onPress=&#123;<span class="keyword">this</span>.onPress&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;View style=&#123;styles.defaultRowContainer&#125;&gt;</span><br><span class="line">            &#123;<span class="keyword">this</span>.renderIcon()&#125;</span><br><span class="line">            &lt;Text</span><br><span class="line">              style=&#123;[styles.defaultTextStyle, <span class="keyword">this</span>.props.textStyle]&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &#123;<span class="keyword">this</span>.props.title&#125;</span><br><span class="line">            &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/TouchableOpacity&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line"></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RNButton;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjje0dt3v00082jpi31zseeyq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-基于react开发的可伸缩tabs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/17/基于react开发的可伸缩tabs/" class="article-date">
-  <time datetime="2018-06-17T08:57:33.000Z" itemprop="datePublished">2018-06-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/基于react开发的可伸缩tabs/">基于react开发的可伸缩tabs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.效果如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react/react-flex-tabs.gif?raw=true" alt="react-flex-tabs"><br>2.自己安装查看效果<br>  先克隆该项目<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/suwu150/react-flex-tabs.git</span><br></pre></td></tr></table></figure></p>
-<p>  然后通过以下命令安装依赖<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>  通过以下命令运行项目<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
-<p>3.flex-tabs组件简介 </p>
-<p>   a. 能够通过传入的对象数据进行增加tab，每当点击传入数据时就会进行添加数据到总的tabs中，能够进行拖动交换位置、删除，当<br>    点击的tab超过页面能够展示的最大宽度时，进行将第一个tab进行折叠，也能够在折叠的tab中进行点击，展开需要打开的tab页面<br>    ，在折叠tab中也能够进行删除之前打开的tab<br>   b.在删除的时候，会按照打开时的队列进行展示被选中的tab页面<br>4.使用说明<br>通过下面代码进行新增tab页面</p>
-<pre><code class="$js">if (this.flexTabs) {
-  const tab = {
-    __id,
-    name: data[__id]
-  };
-  this.flexTabs.createTab(tab);
-}
-</code></pre>
-<p>其中主要方法是createTab，进行创建tab，__id是tab的唯一编号，name用于展示在tab标签上面<br>5.主要方法用法说明</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">用途</th>
-<th style="text-align:center">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">_executeCb</td>
-<td style="text-align:center">回调检查</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">__initCom</td>
-<td style="text-align:center">初始化组件</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">checkWidth</td>
-<td style="text-align:center">检查页面的宽度</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">createTab</td>
-<td style="text-align:center">创建tab，添加到tabs页面中</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_addQueueLast</td>
-<td style="text-align:center">打开的tab顺序</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteQueueItem</td>
-<td style="text-align:center">删除打开的tabs顺序中的一项</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_updateTab</td>
-<td style="text-align:center">创建tab时进行更新tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_isExistSpaceIfAdd</td>
-<td style="text-align:center">添加tab时判断是否还有多余空间</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_closeAllTabs</td>
-<td style="text-align:center">关闭所有tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_closeOtherTabs</td>
-<td style="text-align:center">关闭其他tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteTab</td>
-<td style="text-align:center">删除某一具体的tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_clickTab</td>
-<td style="text-align:center">点击tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_dropHiddenDown</td>
-<td style="text-align:center">点击展开折叠起来的tab开关</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_selectTabCollapse</td>
-<td style="text-align:center">选择折叠起来的tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteTabCollapse</td>
-<td style="text-align:center">删除折叠起来的tabs中的某一个</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_sortableGroupDecorator</td>
-<td style="text-align:center">拖动排序</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_changesOperateCollapse</td>
-<td style="text-align:center">改变展开折叠状态</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_getTabName</td>
-<td style="text-align:center">获取tab的名字</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjje0dt3y000c2jpihmuhftik" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -888,7 +809,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
     </div>
   </div>
 
@@ -910,23 +831,23 @@
       <ul>
         
           <li>
+            <a href="/2018/07/11/react-native应用集成地理逆编码/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/06/react-native应用集成地理逆编码/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/04/基于react-native实现情侣小游戏/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/20/react-native中打包静态js/">rēact-native中打包静态j</a>
-          </li>
-        
-          <li>
-            <a href="/2018/06/18/react-native实现树结构选择组件/">react-native实现树结构选择组件</a>
           </li>
         
       </ul>

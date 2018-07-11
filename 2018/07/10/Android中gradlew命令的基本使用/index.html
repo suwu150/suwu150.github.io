@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Android中gradlew命令的基本使用 | suwu150</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。 build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前">
+<meta name="keywords" content="Android">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android中gradlew命令的基本使用">
+<meta property="og:url" content="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/index.html">
+<meta property="og:site_name" content="suwu150">
+<meta property="og:description" content="Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。 build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-07-11T13:10:55.795Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android中gradlew命令的基本使用">
+<meta name="twitter:description" content="Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。 build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前">
+  
+    <link rel="alternate" href="/atom.xml" title="suwu150" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">suwu150</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android中gradlew命令的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/Android中gradlew命令的基本使用/" class="article-date">
+  <time datetime="2018-07-10T08:18:01.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android中gradlew命令的基本使用
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML<br>的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。</p>
+<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件，当然你也可以通过 -b 参数指定<br>想要加载执行的文件<br>下面进行对android项目进行分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── app #Android App目录</span><br><span class="line">│   ├── app.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── module #Android 另外一个module目录</span><br><span class="line">│   ├── module.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── build</span><br><span class="line">│   └── intermediates</span><br><span class="line">├── build.gradle #工程构建文件</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">├── gradle.properties #gradle的配置</span><br><span class="line">├── gradlew #gradle wrapper linux shell脚本</span><br><span class="line">├── gradlew.bat</span><br><span class="line">├── LibSqlite.iml</span><br><span class="line">├── local.properties #配置Androod SDK位置文件</span><br><span class="line">└── settings.gradle #工程配置</span><br></pre></td></tr></table></figure>
+<p>gradlew 命令就是 gradle wrapper，是gradle的一个包装，可以理解为在这个项目本地就封装了gradle，<br>比如我的安卓项目是LoveYouDeeply, 在LoveYouDeeply/gradle/wrapper/gralde-wrapper.properties文件中声明了它指向的目录和版本，比如我的内容是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Sun May 13 12:31:41 CST 2018</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.6-all.zip</span></span><br></pre></td></tr></table></figure>
+<p>如果你项目没有该文件的话，那么gradlew会到 ~/.gradle/wrapper/dists/gradle-xxx 下寻找，或者你新建给文件，内容复制到里面。其实你会发现是同一个目录咯。里面会有个随机数的文件夹，里面就是gradle，只要下载成功即可用grdlew wrapper的命令代替全局的gradle命令。</p>
+<p>常用命令如下：(linux下是./gradlew，该脚本在项目下，windows直接gradlew即可)</p>
+<ul>
+<li><p>./gradlew -v 版本号，首次运行，没有gradle的要下载的哦。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ./gradlew -v</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle <span class="number">4.6</span></span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   <span class="number">2018</span><span class="number">-02</span><span class="number">-28</span> <span class="number">13</span>:<span class="number">36</span>:<span class="number">36</span> UTC</span><br><span class="line">Revision:     <span class="number">8</span>fa6ce7945b640e6168488e4417f9bb96e4ab46c</span><br><span class="line"></span><br><span class="line">Groovy:       <span class="number">2.4</span><span class="number">.12</span></span><br><span class="line">Ant:          Apache Ant(TM) version <span class="number">1.9</span><span class="number">.9</span> compiled on February <span class="number">2</span> <span class="number">2017</span></span><br><span class="line">JVM:          <span class="number">1.8</span><span class="number">.0</span>_171 (Oracle Corporation <span class="number">25.171</span>-b11)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>./gradlew clean 删除项目LoveYouDeeply/app目录下的build文件夹</p>
+</li>
+<li><p>./gradlew build 检查依赖并编译打包</p>
+<ul>
+<li>这里注意的是 ./gradlew build 命令把debug、release环境的包都打出来，生成的包在目录LoveYouDeeply/app/build/outputs/apk/下。如果正式发布只需要打release的包，该怎么办呢，下面介绍一个很有用的命令 assemble, 如</li>
+</ul>
+</li>
+<li><p>./gradlew assembleDebug 编译并打Debug包</p>
+</li>
+<li><p>./gradlew assemblexiaomiDebug 编译并打xiaomi的debug包，其他类似</p>
+</li>
+<li><p>./gradlew assembleRelease 编译并打Release的包</p>
+</li>
+<li><p>./gradlew assemblexiaomiRelease 编译并打xiaomi的Release包，其他类似</p>
+</li>
+<li><p>./gradlew installRelease Release模式打包并安装</p>
+</li>
+<li><p>./gradlew uninstallRelease 卸载Release模式包</p>
+</li>
+</ul>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><h6 id="1-gradlew-build-和-gradle-build-有区别吗"><a href="#1-gradlew-build-和-gradle-build-有区别吗" class="headerlink" title="1 gradlew build 和 gradle build 有区别吗?"></a>1 gradlew build 和 gradle build 有区别吗?</h6><p>使用gradle wrapper是gradle官方推荐的build方式，而gradlew正是运行了wrapper task之后生成的（运行wrapper task是Android Studio自动做的）。使用gralde wrapper的一个好处就是每个项目可以依赖不同版本的gradle，构建的时候gradle wrapper会帮你自动下载所依赖的版本的gradle。而如果你使用gradle build的话，同时你又有多个项目使用不同版本的gradle，那就需要你手动在自己的机器上配置多个版本的gradle，稍微麻烦一些</p>
+<h6 id="2-自定义apk包名"><a href="#2-自定义apk包名" class="headerlink" title="2 自定义apk包名"></a>2 自定义apk包名</h6><p>gradle脚本可以使用下面方法进行命名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def releaseTime() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().format(<span class="string">"yyyy-MM-dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义apk安装包名</span></span><br><span class="line">    <span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">    applicationVariants.all &#123; variant -&gt;</span><br><span class="line">        variant.outputs.each &#123; output -&gt;</span><br><span class="line">            <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">            <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">            <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">            <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">            <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">            <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">            <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            def outputFile = output.outputFile</span><br><span class="line">            def fileName</span><br><span class="line">            <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">                &#125;</span><br><span class="line">                output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意： 在Gradle 4.6中，应该采用下面的写法,而不是直接修改output<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">android.applicationVariants.all &#123; variant -&gt;</span><br><span class="line">    variant.outputs.all &#123; output -&gt;</span><br><span class="line">        <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">        <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">        <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">        <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">        <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">        <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">        <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        def fileName</span><br><span class="line">        <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">            &#125;</span><br><span class="line">            outputFileName = fileName;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/" data-id="cjjh5qw5j0000s2jhgvduku34" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/11/react-native应用集成地理逆编码/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/10/react-native修改应用启动页/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">react-native修改应用启动页</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/11/react-native应用集成地理逆编码/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 jkwu<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
