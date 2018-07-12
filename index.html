@@ -163,7 +163,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/11/react-native应用集成地理逆编码/" data-id="cjjh5qw60000es2jhcaliuyo1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/11/react-native应用集成地理逆编码/" data-id="cjjip16da000gapjh0waa0r3m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +234,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/" data-id="cjjh5qw5j0000s2jhgvduku34" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/" data-id="cjjip16cq0004apjhujgn0s25" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -272,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/react-native修改应用启动页/" data-id="cjjh5qw5t0004s2jh0fmxspca" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/10/react-native修改应用启动页/" data-id="cjjip16cg0000apjhlmgiael7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -316,7 +316,12 @@
 <li><p>现象：在android日志中能够看到下面日志：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">07-10 19:05:07.446 12390-12436/? E/ReactNativeJS: undefined is not an object (evaluating &apos;s.View.propTypes.style&apos;)</span><br><span class="line">07-10 19:05:07.455 12390-12436/? E/ReactNativeJS: Application Lova has not been registered.</span><br><span class="line"></span><br><span class="line">    Hint: This error often happens when you&apos;re running the packager (local dev server) from a wrong folder. For example you have multiple apps and the packager is still running for the app you were working on before.</span><br><span class="line">    If this is the case, simply kill the old packager instance (e.g. close the packager terminal window) and start the packager in the correct app folder (e.g. cd into app folder and run &apos;npm start&apos;).</span><br><span class="line"></span><br><span class="line">    This error can also happen due to a require() error during initialization or failure to call AppRegistry.registerComponent.</span><br><span class="line">07-10 19:05:08.012 1003-1271/? E/WifiStateMachine:  ConnectedState (when=-5ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:2983] from screen [on:0 period:-2082616660] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">07-10 19:05:08.015 1003-1271/? E/WifiStateMachine:  L2ConnectedState (when=-8ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:3] from screen [on:0 period:-2082616657] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">     get link layer stats 0</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解决方法：——————————-没有解决暂时，—–</p>
+<li><p>解决方法：通过修改build.gradle中的文件</p>
+<ul>
+<li><a href="https://blog.csdn.net/lxk_1993/article/details/50511172" target="_blank" rel="noopener">https://blog.csdn.net/lxk_1993/article/details/50511172</a></li>
+<li>下面代码中BuildConfig不需要自动导入，会默认进行导入，哪怕android studio报错，也不要进行手动导入——报未注册错误appregister。。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public boolean getUseDeveloperSupport() &#123;</span><br><span class="line">  return BuildConfig.DEBUG;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <h5 id="3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’"><a href="#3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’" class="headerlink" title="3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’"></a>3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’</h5><ul>
@@ -332,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjh5qw5y0009s2jhhkc7oirp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjip16dd000iapjhj5nb5ig7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -377,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjjh5qw5o0001s2jh7s8ee9sk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjjip16ck0001apjhd31hlcoj" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
@@ -420,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjjh5qw66000js2jhbwblsdvv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjjip16dj000oapjhxs87p9al" class="article-share-link">Share</a>
       
       
     </footer>
@@ -457,7 +462,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjjh5qw5s0003s2jhtd9fk4cg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjjip16co0003apjhue2vnxd8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -540,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjjh5qw5w0008s2jhbhsegbi9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjjip16cr0005apjh4uge9mao" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -640,7 +645,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjjh5qw5u0005s2jhjyjj5t6v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjjip16cs0008apjhh3sp0vuc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -769,7 +774,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjjh5qw64000hs2jhnuzmy1xw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjjip16de000kapjhecsuis9r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>

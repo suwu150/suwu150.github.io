@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="suwu150">
 <meta property="og:description" content="1. 应用未安装 问题：在安装apk安装包的时候，会出现应用未安装的提示 解决方法： 删掉手机上已经安装过的apk，进行重新安装即可 原因分析： 是由于签名问题，在程序中包名一致，但是签名不同就会出现不能安装问题  2. 很抱歉，程序出现异常，即将退出 问题：在打开程序的时候，会出现很抱歉，程序出现异常，即将退出的提示，然后退出程序 现象：在android日志中能够看到下面日志： 12345678">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-11T13:25:39.360Z">
+<meta property="og:updated_time" content="2018-07-12T06:26:38.498Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-native打包Android应用问题及安装汇总">
 <meta name="twitter:description" content="1. 应用未安装 问题：在安装apk安装包的时候，会出现应用未安装的提示 解决方法： 删掉手机上已经安装过的apk，进行重新安装即可 原因分析： 是由于签名问题，在程序中包名一致，但是签名不同就会出现不能安装问题  2. 很抱歉，程序出现异常，即将退出 问题：在打开程序的时候，会出现很抱歉，程序出现异常，即将退出的提示，然后退出程序 现象：在android日志中能够看到下面日志： 12345678">
@@ -97,7 +97,12 @@
 <li><p>现象：在android日志中能够看到下面日志：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">07-10 19:05:07.446 12390-12436/? E/ReactNativeJS: undefined is not an object (evaluating &apos;s.View.propTypes.style&apos;)</span><br><span class="line">07-10 19:05:07.455 12390-12436/? E/ReactNativeJS: Application Lova has not been registered.</span><br><span class="line"></span><br><span class="line">    Hint: This error often happens when you&apos;re running the packager (local dev server) from a wrong folder. For example you have multiple apps and the packager is still running for the app you were working on before.</span><br><span class="line">    If this is the case, simply kill the old packager instance (e.g. close the packager terminal window) and start the packager in the correct app folder (e.g. cd into app folder and run &apos;npm start&apos;).</span><br><span class="line"></span><br><span class="line">    This error can also happen due to a require() error during initialization or failure to call AppRegistry.registerComponent.</span><br><span class="line">07-10 19:05:08.012 1003-1271/? E/WifiStateMachine:  ConnectedState (when=-5ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:2983] from screen [on:0 period:-2082616660] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">07-10 19:05:08.015 1003-1271/? E/WifiStateMachine:  L2ConnectedState (when=-8ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:3] from screen [on:0 period:-2082616657] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">     get link layer stats 0</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>解决方法：——————————-没有解决暂时，—–</p>
+<li><p>解决方法：通过修改build.gradle中的文件</p>
+<ul>
+<li><a href="https://blog.csdn.net/lxk_1993/article/details/50511172" target="_blank" rel="noopener">https://blog.csdn.net/lxk_1993/article/details/50511172</a></li>
+<li>下面代码中BuildConfig不需要自动导入，会默认进行导入，哪怕android studio报错，也不要进行手动导入——报未注册错误appregister。。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public boolean getUseDeveloperSupport() &#123;</span><br><span class="line">  return BuildConfig.DEBUG;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
 </li>
 </ul>
 <h5 id="3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’"><a href="#3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’" class="headerlink" title="3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’"></a>3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’</h5><ul>
@@ -113,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjh5qw5y0009s2jhhkc7oirp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjip16dd000iapjhj5nb5ig7" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
