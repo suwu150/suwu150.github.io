@@ -62,6 +62,379 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-react-native应用集成地理逆编码" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/11/react-native应用集成地理逆编码/" class="article-date">
+  <time datetime="2018-07-11T13:20:53.795Z" itemprop="datePublished">2018-07-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: react-native应用集成地理逆编码<br>date: 2018-06-24 19:13:17</p>
+<h2 id="tags-react-native"><a href="#tags-react-native" class="headerlink" title="tags: react-native"></a>tags: react-native</h2><h5 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h5><p>   最近，在项目中需要集成定位功能，在网上搜集资料之后，决定采用逆地理定位功能进行实现，那么让我们看看逆地理定位功能是怎么实现<br>   的。</p>
+<h5 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h5><p>  主要过程分为两部分:<br>    (1):一是获取定位点的经纬度;<br>    (2):二是使用一步骤获取的经纬度，进行调用能够解析经纬度的接口API，进行对应地理信息的获取.<br>  在解决上述问题的过程中使用了<code>百度逆地理</code>和<code>高德逆地理</code>定位功能，如下所示分别是高德逆地理和百度逆地理的访问文档 </p>
+<p>  <a href="http://lbs.amap.com/api/webservice/guide/api/georegeo" target="_blank" rel="noopener">高德地理/逆地理编码文档地址</a><br>  <a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度地理/逆地理解析文档地址</a>   </p>
+<h5 id="三、解决方法"><a href="#三、解决方法" class="headerlink" title="三、解决方法"></a>三、解决方法</h5><p> 首先要解决的是公共问题，也就是经纬度的获取，在这里，我们使用react-native提供的接口<a href="https://facebook.github.io/react-native/docs/geolocation.html" target="_blank" rel="noopener">Geolocation</a>进行获取，<br> 说到这里，我们就得去了解一下Geolocation是什么东西？</p>
+<h6 id="1-Geolocation信息说明"><a href="#1-Geolocation信息说明" class="headerlink" title="1.Geolocation信息说明"></a>1.Geolocation信息说明</h6><p> Geolocation就是react-native官方提供的用于提供基本定位信息和经纬度信息的API，使用Geolocation时需要获取相应的系统权限<br> （1）权限说明    </p>
+<ul>
+<li>IOS系统：<br>需要在Info.plist中增加<code>NSLocationWhenInUseUsageDescription</code>字段来启用定位功能。如果你使用react-native init创建项目，定位会被默认启用。  </li>
+<li><p>Android系统：<br>需要请求访问地理位置的权限，你需要在AndroidManifest.xml文件中加入如下一行：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;uses-permission android:name=<span class="string">"android.permission.ACCESS_FINE_LOCATION"</span> /&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>  （2）方法</p>
+<ul>
+<li>static requestAuthorization()<br>根据pList上配置的密钥请求合适的位置权限。<br>如果设置NSLocationAlwaysUsageDescription，它将请求始终授权，但如果设置NSLocationWhenInUseUsageDescription，它将请求InUse授权。</li>
+<li>static getCurrentPosition(geo_success: Function, geo_error?: Function, geo_options?: GeoOptions)<br>成功时会调用geo_success回调，参数中包含最新的位置信息。<br>支持的选项：timeout (ms), maximumAge (ms), enableHighAccuracy (bool)<br>选项的含义如下所示：     <ul>
+<li>timeout：指定获取地理位置时的超时时间，默认不限时</li>
+<li>maximumAge：最长有效期，此参数用来指定多久再次获取位置</li>
+<li>enableHighAccuracy：指示浏览器获取高精度的位置，默认为false，开启后浏览器可能花费更长的时间获取更精确的位置数据<br>对于该方法请求成功之后，会有下面返回结果：<ul>
+<li>1.经度：coords.longitude</li>
+<li>2.纬度：coords.latitude</li>
+<li>3.精确度：coords.accurary</li>
+<li>4.海拔：coords.altitude</li>
+<li>5.海拔准确度：coords.altitudeAcurary</li>
+<li>6.行进方向：coords.heading</li>
+<li>7.地面速度：coords.speed</li>
+<li>8.时间戳：new Date(position.timestamp)<br>当然，我们也可能遇到请求失败的问题，那么，请求失败都有下面这几种情况<br>1.用户拒绝定位、2.请求超时、3.暂时获取不到定位信息、4.未知错误</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>static watchPosition(success: Function, error?: Function, options?: GeoOptions)<br>持续监听位置，每当位置变化之后都调用success回调。<br>支持的选项：timeout (ms), maximumAge (ms), enableHighAccuracy (bool), useSignificantChanges (bool)     </p>
+</li>
+<li><p>static clearWatch(watchID: number)<br>清除位置监听，位置监听id可由watchPosition方法返回</p>
+</li>
+<li><p>static stopObserving()       </p>
+<p>如下面代码，我们能够进行获取到经纬度</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">componentDidMount() &#123;</span><br><span class="line">  <span class="keyword">this</span>._getLocation();</span><br><span class="line">  <span class="keyword">this</span>.watchPosition = <span class="keyword">this</span>._getWatchPosition();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">componentWillUnmount() &#123;</span><br><span class="line">  navigator.geolocation.clearWatch(<span class="keyword">this</span>.watchPosition);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">_getLocation = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  navigator.geolocation.getCurrentPosition(</span><br><span class="line">    (initialPosition) =&gt; <span class="keyword">this</span>.setState(&#123; initialPosition &#125;, () =&gt; &#123;</span><br><span class="line">      <span class="keyword">this</span>._getAddress();</span><br><span class="line">    &#125;),</span><br><span class="line">    (error) =&gt; alert(error.message),</span><br><span class="line">    &#123; <span class="attr">enableHighAccuracy</span>: <span class="literal">true</span>, <span class="attr">timeout</span>: <span class="number">20000</span>, <span class="attr">maximumAge</span>: <span class="number">1000</span> &#125;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">_getWatchPosition = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> navigator.geolocation.watchPosition(</span><br><span class="line">    (lastPosition) =&gt; &#123;</span><br><span class="line">      <span class="keyword">this</span>.setState(&#123; lastPosition &#125;, () =&gt; &#123; <span class="keyword">this</span>._getAddress(); &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">    (error) =&gt; alert(error.message),</span><br><span class="line">    &#123; <span class="attr">enableHighAccuracy</span>: <span class="literal">true</span>, <span class="attr">timeout</span>: <span class="number">20000</span>, <span class="attr">maximumAge</span>: <span class="number">1000</span> &#125;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中<code>initialPosition</code>和<code>lastPosition</code>的对象内容一直，只不过一个是初始化的时候的经纬度信息，一个是当前最新的经纬度信息，其返回结果如下所示：   </p>
+<center><br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-geolocation-result.png?raw=true" width="45%" height="35%"><br>geolocation数据结构<br></center>
+
+<p>注意：在上面代码中，navigator.geolocation指的不是导航器，而是Geolocation的一个类，能够获取到定位的经纬度信息<br> 我分别使用代码，进行了两种api的调用，如下代码：</p>
+<h6 id="2-高德逆地理解析"><a href="#2-高德逆地理解析" class="headerlink" title="2.高德逆地理解析"></a>2.高德逆地理解析</h6><p>在高德逆地理解析中，需要首先进行获取高德账号Key。<br>参考下面文章即可：<a href="http://lbs.amap.com/api/webservice/guide/api/georegeo" target="_blank" rel="noopener">高德key的申请及使用说明</a><br>创建界面如下所示，在创建时我们选择<code>web服务</code>选项：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-amap.png?raw=true" alt="amap"><br>在获取key之后，我们就可以说是所有要准备的东西都已经准备好了，也就是有了Geolocation获取的经纬度，也有了能够正常访问的逆地理解析API，那我们就将<br>经纬度进行介绍，<br>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<ul>
+<li>1.输入的url<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//restapi.amap.com/v3/geocode/regeo?key=高德申请的key&amp;poitype=all&amp;radius=3000&amp;output=json&amp;extensions=all&amp;roadlevel=0&amp;location=120.19698604,30.11286062</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：上面的key需要进行修改为自己的在高德申请的key，才能够进行访问到数据</p>
+<ul>
+<li><p>2.回车之后获取的数据界面<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-amap-result.png?raw=true" alt="请求结果数据展示"></p>
+<p><code>#注意#：如上所示，能够通过浏览器访问到数据，则说明接口可以正常使用，也就是我们可以通过自己的请求进行请求数据了</code> </p>
+</li>
+<li><p>3.如下代码所示为完整请求过程</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">_getAddress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 经度：positionData.longitude</span></span><br><span class="line">    <span class="comment">// 纬度：positionData.latitude</span></span><br><span class="line">    <span class="comment">// 最后一步 todo：高德逆地理编码转</span></span><br><span class="line">    <span class="comment">// lat&lt;纬度&gt;,lng&lt;经度&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> aMapLocationConfig = &#123;</span><br><span class="line">      key: <span class="string">'这里填写你自己申请的key，我的就不让你用了'</span>,</span><br><span class="line">      poitype: <span class="string">'all'</span>,</span><br><span class="line">      radius: <span class="number">3000</span>,</span><br><span class="line">      output: <span class="string">'json'</span>,</span><br><span class="line">      extensions: <span class="string">'all'</span>,</span><br><span class="line">      roadlevel: <span class="number">0</span>,</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="keyword">const</span> aMapLocationURL = <span class="string">'https://restapi.amap.com/v3/geocode/regeo'</span>; <span class="comment">//GET请求</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// callback=renderReverse&amp;location=35.658651,139.745415&amp;output=json&amp;pois=1&amp;ak=您的ak</span></span><br><span class="line">    <span class="comment">// radius=3000&amp;output=json&amp;extensions=all&amp;roadlevel=all&amp;location=30.11286062,120.19698604</span></span><br><span class="line">    <span class="comment">// ?output=xml&amp;location=116.310003,39.991957&amp;key=&lt;用户的key&gt;&amp;radius=1000&amp;extensions=all</span></span><br><span class="line">    <span class="keyword">const</span> &#123; lastPosition &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">    <span class="keyword">if</span> (!lastPosition) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">const</span> &#123; longitude, latitude &#125; = lastPosition.coords;</span><br><span class="line">    <span class="keyword">const</span> location = longitude + <span class="string">','</span> + latitude;</span><br><span class="line">    <span class="keyword">const</span> aMapUrl = aMapLocationURL + <span class="string">'?'</span> + Qs.stringify(&#123; ...aMapLocationConfig &#125;) + <span class="string">'&amp;location='</span> + location;</span><br><span class="line"></span><br><span class="line">    InteractionManager.runAfterInteractions(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      gaxios(aMapUrl)</span><br><span class="line">        .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            address: response</span><br><span class="line">          &#125;, () =&gt; &#123;</span><br><span class="line">          &#125;);</span><br><span class="line">        &#125;).catch(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="built_in">console</span>.log(<span class="string">'获取地址信息出错'</span> + error);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>4.高德API请求参数和响应参数说明<br> 可参考官方文档—<a href="https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo" target="_blank" rel="noopener">https://lbs.amap.com/api/webservice/guide/api/georegeo#regeo</a></p>
+<h6 id="3-百度逆地理解析"><a href="#3-百度逆地理解析" class="headerlink" title="3.百度逆地理解析"></a>3.百度逆地理解析</h6><p>同样的，对于百度逆地理解析也需要进行获取key值，如下面文档说明<a href="https://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">百度逆地理解析的申请及说明文档</a><br>按照说明文档中的，我们需要进行<a href="https://lbsyun.baidu.com/apiconsole/key/create" target="_blank" rel="noopener">创建应用</a><br>创建界面如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/api-create-baidu.png?raw=true" alt="baidu"><br>在创建应用时，需要注意的是应该创建应用类型为<code>服务端</code>的类型，然后我们就能够进行请求api获取逆地理解析的详细信息了，如下所示：</p>
+</li>
+</ul>
+<p>首先我们进行判断api能否使用，通过我们手动拼接URL，然后在浏览器地址栏输入，如下界面即为正常</p>
+<ul>
+<li>1.输入的url  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:<span class="comment">//api.map.baidu.com/geocoder/v2/?location=30.1128606254,120.1969860408&amp;output=json&amp;pois=1&amp;ak=百度申请的ak</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>注意：上面的ak需要进行修改为自己的ak，才能够进行访问到数据，同时，为了能够获取到数据，先将ip白名单设置为<code>0.0.0.0/0</code>,如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/white_ip.png?raw=true" alt="url地址"></p>
+<ul>
+<li><p>2.回车之后获取的数据界面<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/url_result.png?raw=true" alt="结果数据"></p>
+<p><code>#注意#：如上所示，能够通过浏览器访问到数据，则说明接口可以正常使用，也就是我们可以通过自己的请求进行请求数据了</code>    </p>
+</li>
+<li><p>3.如下为完整请求过程       </p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">_getAddress = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 经度：positionData.longitude</span></span><br><span class="line">  <span class="comment">// 纬度：positionData.latitude</span></span><br><span class="line">  <span class="comment">// 最后一步 todo：百度地图逆地理编码转</span></span><br><span class="line">  <span class="comment">// lat&lt;纬度&gt;,lng&lt;经度&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="keyword">const</span> baiduLocationConfig = &#123;</span><br><span class="line">    <span class="comment">// callback: 'renderReverse',</span></span><br><span class="line">    ak: <span class="string">'这里填写你自己申请的ak，我的就不让你用了'</span>,</span><br><span class="line">    pois: <span class="number">1</span>,</span><br><span class="line">    output: <span class="string">'json'</span>,</span><br><span class="line">    latest_admin: <span class="number">1</span>,</span><br><span class="line">    language_auto: <span class="number">1</span>,</span><br><span class="line">    extensions_town: <span class="literal">true</span>,</span><br><span class="line">    extensions_road: <span class="literal">true</span>,</span><br><span class="line">    radius: <span class="number">1000</span>,</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">const</span> baiduLocationURL = <span class="string">'https://api.map.baidu.com/geocoder/v2/'</span>; <span class="comment">//GET请求</span></span><br><span class="line">  <span class="comment">// callback=renderReverse&amp;location=35.658651,139.745415&amp;output=json&amp;pois=1&amp;ak=您的ak</span></span><br><span class="line"> </span><br><span class="line">  <span class="keyword">const</span> &#123; lastPosition &#125; = <span class="keyword">this</span>.state;</span><br><span class="line">  <span class="keyword">if</span> (!lastPosition) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">  <span class="keyword">const</span> &#123; longitude, latitude &#125; = lastPosition &amp;&amp; lastPosition.coords;</span><br><span class="line">  <span class="keyword">const</span> location = latitude + <span class="string">','</span> + longitude;</span><br><span class="line">  <span class="keyword">const</span> baiduUrl = baiduLocationURL + <span class="string">'?'</span> + Qs.stringify(&#123; ...baiduLocationConfig &#125;) + <span class="string">'&amp;location='</span> + location;</span><br><span class="line"> </span><br><span class="line">  InteractionManager.runAfterInteractions(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    gaxios(baiduUrl)</span><br><span class="line">      .then(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">          address: response</span><br><span class="line">        &#125;, () =&gt; &#123;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;).catch(<span class="function">(<span class="params">err</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'获取地址信息出错'</span>, err);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>4.百度API请求参数和响应参数说明<br>可参考官方文档–<a href="http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad" target="_blank" rel="noopener">http://lbsyun.baidu.com/index.php?title=webapi/guide/webservice-geocoding-abroad</a><h5 id="四、效果展示"><a href="#四、效果展示" class="headerlink" title="四、效果展示"></a>四、效果展示</h5>发送请求之后，我们能够看到如下效果，在请求之后，我将请求到的数据进行了分类，进行对其中具体的字段进行了说明：<h6 id="1-高德地图请求效果"><a href="#1-高德地图请求效果" class="headerlink" title="1.高德地图请求效果"></a>1.高德地图请求效果</h6><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-amap.gif?raw=true" alt="高德效果展示"><h6 id="2-百度地图请求效果"><a href="#2-百度地图请求效果" class="headerlink" title="2.百度地图请求效果"></a>2.百度地图请求效果</h6><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-locations/react-native-locations-baidu.gif?raw=true" alt="百度效果展示"></li>
+</ul>
+<h5 id="五-演示代码github地址"><a href="#五-演示代码github地址" class="headerlink" title="五 演示代码github地址"></a>五 演示代码github地址</h5><p>GitHub地址：<a href="https://github.com/suwu150/react-native-locations" target="_blank" rel="noopener">https://github.com/suwu150/react-native-locations</a><br>，能够直接通过<code>git clone</code>进行克隆运行，运行命令如下所示：<br>1.克隆项目<br> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/suwu150/react-native-locations.git</span><br></pre></td></tr></table></figure></p>
+<p>2.进入项目，安装依赖库文件<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd react-native-locations</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>3.运行项目<br>  ios：<br>  <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-ios</span><br></pre></td></tr></table></figure></p>
+<p> Android:<br> <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native run-android</span><br></pre></td></tr></table></figure></p>
+<p>注意：在运行安卓项目的时候，必须手动打开模拟器  </p>
+<hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/11/react-native应用集成地理逆编码/" data-id="cjjip16da000gapjh0waa0r3m" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android中gradlew命令的基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/Android中gradlew命令的基本使用/" class="article-date">
+  <time datetime="2018-07-10T08:18:01.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Gradle是一个基于Apache Ant和Apache Maven概念的项目自动化建构工具。它使用一种基于Groovy的特定领域语言(DSL)来声明项目设置，抛弃了基于XML<br>的各种繁琐配置。 面向Java应用为主。当前其支持的语言限于Java、Groovy和Scala，计划未来将支持更多的语言。</p>
+<p>build.gradle是Gradle默认的构建脚本文件，执行Gradle命令的时候，会默认加载当前目录下的build.gradle脚本文件，当然你也可以通过 -b 参数指定<br>想要加载执行的文件<br>下面进行对android项目进行分析。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">├── app #Android App目录</span><br><span class="line">│   ├── app.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── module #Android 另外一个module目录</span><br><span class="line">│   ├── module.iml</span><br><span class="line">│   ├── build #构建输出目录</span><br><span class="line">│   ├── build.gradle #构建脚本</span><br><span class="line">│   ├── libs #so相关库</span><br><span class="line">│   ├── proguard-rules.pro #proguard混淆配置</span><br><span class="line">│   └── src #源代码，资源等</span><br><span class="line">├── build</span><br><span class="line">│   └── intermediates</span><br><span class="line">├── build.gradle #工程构建文件</span><br><span class="line">├── gradle</span><br><span class="line">│   └── wrapper</span><br><span class="line">├── gradle.properties #gradle的配置</span><br><span class="line">├── gradlew #gradle wrapper linux shell脚本</span><br><span class="line">├── gradlew.bat</span><br><span class="line">├── LibSqlite.iml</span><br><span class="line">├── local.properties #配置Androod SDK位置文件</span><br><span class="line">└── settings.gradle #工程配置</span><br></pre></td></tr></table></figure>
+<p>gradlew 命令就是 gradle wrapper，是gradle的一个包装，可以理解为在这个项目本地就封装了gradle，<br>比如我的安卓项目是LoveYouDeeply, 在LoveYouDeeply/gradle/wrapper/gralde-wrapper.properties文件中声明了它指向的目录和版本，比如我的内容是：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#Sun May 13 12:31:41 CST 2018</span><br><span class="line">distributionBase=GRADLE_USER_HOME</span><br><span class="line">distributionPath=wrapper/dists</span><br><span class="line">zipStoreBase=GRADLE_USER_HOME</span><br><span class="line">zipStorePath=wrapper/dists</span><br><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.6-all.zip</span></span><br></pre></td></tr></table></figure>
+<p>如果你项目没有该文件的话，那么gradlew会到 ~/.gradle/wrapper/dists/gradle-xxx 下寻找，或者你新建给文件，内容复制到里面。其实你会发现是同一个目录咯。里面会有个随机数的文件夹，里面就是gradle，只要下载成功即可用grdlew wrapper的命令代替全局的gradle命令。</p>
+<p>常用命令如下：(linux下是./gradlew，该脚本在项目下，windows直接gradlew即可)</p>
+<ul>
+<li><p>./gradlew -v 版本号，首次运行，没有gradle的要下载的哦。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$ ./gradlew -v</span><br><span class="line"></span><br><span class="line">------------------------------------------------------------</span><br><span class="line">Gradle <span class="number">4.6</span></span><br><span class="line">------------------------------------------------------------</span><br><span class="line"></span><br><span class="line">Build time:   <span class="number">2018</span><span class="number">-02</span><span class="number">-28</span> <span class="number">13</span>:<span class="number">36</span>:<span class="number">36</span> UTC</span><br><span class="line">Revision:     <span class="number">8</span>fa6ce7945b640e6168488e4417f9bb96e4ab46c</span><br><span class="line"></span><br><span class="line">Groovy:       <span class="number">2.4</span><span class="number">.12</span></span><br><span class="line">Ant:          Apache Ant(TM) version <span class="number">1.9</span><span class="number">.9</span> compiled on February <span class="number">2</span> <span class="number">2017</span></span><br><span class="line">JVM:          <span class="number">1.8</span><span class="number">.0</span>_171 (Oracle Corporation <span class="number">25.171</span>-b11)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>./gradlew clean 删除项目LoveYouDeeply/app目录下的build文件夹</p>
+</li>
+<li><p>./gradlew build 检查依赖并编译打包</p>
+<ul>
+<li>这里注意的是 ./gradlew build 命令把debug、release环境的包都打出来，生成的包在目录LoveYouDeeply/app/build/outputs/apk/下。如果正式发布只需要打release的包，该怎么办呢，下面介绍一个很有用的命令 assemble, 如</li>
+</ul>
+</li>
+<li><p>./gradlew assembleDebug 编译并打Debug包</p>
+</li>
+<li><p>./gradlew assemblexiaomiDebug 编译并打xiaomi的debug包，其他类似</p>
+</li>
+<li><p>./gradlew assembleRelease 编译并打Release的包</p>
+</li>
+<li><p>./gradlew assemblexiaomiRelease 编译并打xiaomi的Release包，其他类似</p>
+</li>
+<li><p>./gradlew installRelease Release模式打包并安装</p>
+</li>
+<li><p>./gradlew uninstallRelease 卸载Release模式包</p>
+</li>
+</ul>
+<h4 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h4><h6 id="1-gradlew-build-和-gradle-build-有区别吗"><a href="#1-gradlew-build-和-gradle-build-有区别吗" class="headerlink" title="1 gradlew build 和 gradle build 有区别吗?"></a>1 gradlew build 和 gradle build 有区别吗?</h6><p>使用gradle wrapper是gradle官方推荐的build方式，而gradlew正是运行了wrapper task之后生成的（运行wrapper task是Android Studio自动做的）。使用gralde wrapper的一个好处就是每个项目可以依赖不同版本的gradle，构建的时候gradle wrapper会帮你自动下载所依赖的版本的gradle。而如果你使用gradle build的话，同时你又有多个项目使用不同版本的gradle，那就需要你手动在自己的机器上配置多个版本的gradle，稍微麻烦一些</p>
+<h6 id="2-自定义apk包名"><a href="#2-自定义apk包名" class="headerlink" title="2 自定义apk包名"></a>2 自定义apk包名</h6><p>gradle脚本可以使用下面方法进行命名：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">def releaseTime() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Date</span>().format(<span class="string">"yyyy-MM-dd"</span>, TimeZone.getTimeZone(<span class="string">"UTC"</span>))</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义apk安装包名</span></span><br><span class="line">    <span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">    applicationVariants.all &#123; variant -&gt;</span><br><span class="line">        variant.outputs.each &#123; output -&gt;</span><br><span class="line">            <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">            <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">            <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">            <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">            <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">            <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">            <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">            <span class="comment">// &#125;</span></span><br><span class="line">            def outputFile = output.outputFile</span><br><span class="line">            def fileName</span><br><span class="line">            <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">                <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                    fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">                &#125;</span><br><span class="line">                output.outputFile = <span class="keyword">new</span> File(outputFile.parent, fileName)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>注意： 在Gradle 4.6中，应该采用下面的写法,而不是直接修改output<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// applicationVariants are e.g. debug, release</span></span><br><span class="line">android.applicationVariants.all &#123; variant -&gt;</span><br><span class="line">    variant.outputs.all &#123; output -&gt;</span><br><span class="line">        <span class="comment">// For each separate APK per architecture, set a unique version code as described here:</span></span><br><span class="line">        <span class="comment">// http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits</span></span><br><span class="line">        <span class="comment">// def versionCodes = ["armeabi-v7a":1, "x86":2]</span></span><br><span class="line">        <span class="comment">// def abi = output.getFilter(OutputFile.ABI)</span></span><br><span class="line">        <span class="comment">// if (abi != null) &#123;  // null for the universal-debug, universal-release variants</span></span><br><span class="line">        <span class="comment">//     output.versionCodeOverride =</span></span><br><span class="line">        <span class="comment">//             versionCodes.get(abi) * 1048576 + defaultConfig.versionCode</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        def fileName</span><br><span class="line">        <span class="keyword">if</span> (outputFile != <span class="literal">null</span> &amp;&amp; outputFile.name.endsWith(<span class="string">'.apk'</span>)) &#123;</span><br><span class="line">            <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'release'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"com.amarsoft.LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;.apk"</span></span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (variant.buildType.name.equals(<span class="string">'debug'</span>)) &#123;</span><br><span class="line">                fileName = <span class="string">"LoveYouDeeply_v$&#123;defaultConfig.versionName&#125;_debug_$&#123;releaseTime()&#125;.apk"</span></span><br><span class="line">            &#125;</span><br><span class="line">            outputFileName = fileName;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/Android中gradlew命令的基本使用/" data-id="cjjip16cq0004apjhujgn0s25" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-native修改应用启动页" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/react-native修改应用启动页/" class="article-date">
+  <time datetime="2018-07-10T08:09:52.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/react-native修改应用启动页/" data-id="cjjip16cg0000apjhlmgiael7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-react-native打包Android应用问题及安装汇总" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/" class="article-date">
+  <time datetime="2018-07-10T01:36:34.000Z" itemprop="datePublished">2018-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-应用未安装"><a href="#1-应用未安装" class="headerlink" title="1. 应用未安装"></a>1. 应用未安装</h5><ul>
+<li>问题：在安装apk安装包的时候，会出现<code>应用未安装</code>的提示</li>
+<li>解决方法： 删掉手机上已经安装过的apk，进行重新安装即可</li>
+<li>原因分析： 是由于签名问题，在程序中包名一致，但是签名不同就会出现不能安装问题</li>
+</ul>
+<h5 id="2-很抱歉，程序出现异常，即将退出"><a href="#2-很抱歉，程序出现异常，即将退出" class="headerlink" title="2. 很抱歉，程序出现异常，即将退出"></a>2. 很抱歉，程序出现异常，即将退出</h5><ul>
+<li>问题：在打开程序的时候，会出现<code>很抱歉，程序出现异常，即将退出</code>的提示，然后退出程序</li>
+<li><p>现象：在android日志中能够看到下面日志：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">07-10 19:05:07.446 12390-12436/? E/ReactNativeJS: undefined is not an object (evaluating &apos;s.View.propTypes.style&apos;)</span><br><span class="line">07-10 19:05:07.455 12390-12436/? E/ReactNativeJS: Application Lova has not been registered.</span><br><span class="line"></span><br><span class="line">    Hint: This error often happens when you&apos;re running the packager (local dev server) from a wrong folder. For example you have multiple apps and the packager is still running for the app you were working on before.</span><br><span class="line">    If this is the case, simply kill the old packager instance (e.g. close the packager terminal window) and start the packager in the correct app folder (e.g. cd into app folder and run &apos;npm start&apos;).</span><br><span class="line"></span><br><span class="line">    This error can also happen due to a require() error during initialization or failure to call AppRegistry.registerComponent.</span><br><span class="line">07-10 19:05:08.012 1003-1271/? E/WifiStateMachine:  ConnectedState (when=-5ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:2983] from screen [on:0 period:-2082616660] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">07-10 19:05:08.015 1003-1271/? E/WifiStateMachine:  L2ConnectedState (when=-8ms what=131155 arg1=5!CMD_RSSI_POLL 5 0 &quot;11223344&quot; ac:c1:ee:3c:82:dd rssi=-51 f=2412 sc=60 link=65 tx=0.5, 0.0, 0.0  rx=0.3 bcn=0 [on:0 tx:0 rx:0 period:3] from screen [on:0 period:-2082616657] gl hn u24 rssi=-46 ag=0 hr ticks 0,0,0 ls-=0 [56,56,56,56,61] brc=0 lrc=0</span><br><span class="line">     get link layer stats 0</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法：通过修改build.gradle中的文件</p>
+<ul>
+<li><a href="https://blog.csdn.net/lxk_1993/article/details/50511172" target="_blank" rel="noopener">https://blog.csdn.net/lxk_1993/article/details/50511172</a></li>
+<li>下面代码中BuildConfig不需要自动导入，会默认进行导入，哪怕android studio报错，也不要进行手动导入——报未注册错误appregister。。。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public boolean getUseDeveloperSupport() &#123;</span><br><span class="line">  return BuildConfig.DEBUG;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’"><a href="#3-Android-Gradle-3-0-0-alpha2-plugin-Cannot-set-the-value-of-read-only-property-‘outputFile’" class="headerlink" title="3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’"></a>3.  Android Gradle 3.0.0-alpha2 plugin, Cannot set the value of read-only property ‘outputFile’</h5><ul>
+<li>问题：</li>
+<li>解决方法：<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">applicationVariants.all &#123; variant -&gt; </span><br><span class="line">    variant.outputs.each &#123; output -&gt;</span><br><span class="line">        def SEP = <span class="string">"_"</span></span><br><span class="line">        def flavor = variant.productFlavors[<span class="number">0</span>].name</span><br><span class="line">        def buildType = </span><br><span class="line">        variant.variantData.variantConfiguration.buildType.name</span><br><span class="line">        def version = variant.versionName</span><br><span class="line">        def date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line">        def formattedDate = date.format(<span class="string">'ddMMyy_HHmm'</span>)</span><br><span class="line">        def newApkName = PROJECT_NAME + SEP + flavor + SEP + buildType + SEP + version + SEP + formattedDate + <span class="string">".apk"</span></span><br><span class="line">        def file = <span class="keyword">new</span> File(newApkName)</span><br><span class="line">        output.outputFile = file</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>修改为：<br>Use all() instead of each()<br>Use outputFileName instead of output.outputFile if you change only file name (that is your case)<br>Example from the guide:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// If you use each() to iterate through the variant objects,</span></span><br><span class="line"><span class="comment">// you need to start using all(). That's because each() iterates</span></span><br><span class="line"><span class="comment">// through only the objects that already exist during configuration time—</span></span><br><span class="line"><span class="comment">// but those object don't exist at configuration time with the new model.</span></span><br><span class="line"><span class="comment">// However, all() adapts to the new model by picking up object as they are</span></span><br><span class="line"><span class="comment">// added during execution.</span></span><br><span class="line">android.applicationVariants.all &#123; variant -&gt;</span><br><span class="line">    variant.outputs.all &#123;</span><br><span class="line">        outputFileName = <span class="string">"$&#123;variant.name&#125;-$&#123;variant.versionName&#125;.apk"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>原因分析： 版本更新导致的问题</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/10/react-native打包Android应用问题及安装汇总/" data-id="cjjip16dd000iapjhj5nb5ig7" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" class="article-date">
+  <time datetime="2018-07-09T06:28:21.000Z" itemprop="datePublished">2018-07-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle"><a href="#Android-Studio报错：Configuration-on-demand-is-not-supported-by-the-current-version-of-the-Android-Gradle" class="headerlink" title="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle"></a>Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</h4><h5 id="1-错误"><a href="#1-错误" class="headerlink" title="1.错误"></a>1.错误</h5><p>Configuration on demand is not supported by the current version of the Android Gradle plugin since you are using Gradle version 4.6 or above.?<br>Suggestion: disable configuration on demand by setting org.gradle.configureondemand=false in your gradle.properties file or use a Gradle version less than 4.6.</p>
+<h5 id="2-翻译"><a href="#2-翻译" class="headerlink" title="2.翻译"></a>2.翻译</h5><p>由于使用你正在使用 Gradle版本4.6或以上，当前版本的Android的Gradle插件不支持按需配置。<br>建议：通过在你的<code>gradle.properties</code> 文件中设置 <code>org.gradle.configureondemand=false</code> 禁用按需配置，或者使用一个低于4.6版本的Gradle。</p>
+<h5 id="3-解决方法一：降级"><a href="#3-解决方法一：降级" class="headerlink" title="3.解决方法一：降级"></a>3.解决方法一：降级</h5><p>打开 <code>gradle-wrapper.properties</code> 文件，修改distributionUrl 参数，将其后面修改为低于4.6版本的 Gradle。如：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">distributionUrl=https\:<span class="comment">//services.gradle.org/distributions/gradle-4.5-all.zip</span></span><br></pre></td></tr></table></figure></p>
+<h5 id="4-解决方法二：禁用按需配置"><a href="#4-解决方法二：禁用按需配置" class="headerlink" title="4.解决方法二：禁用按需配置"></a>4.解决方法二：禁用按需配置</h5><h6 id="1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的"><a href="#1、打开-gradle-properties-文件，共有两个：Global-Properties-和-Project-Properties，将其中的" class="headerlink" title="1、打开 gradle.properties 文件，共有两个：Global Properties 和 Project Properties，将其中的"></a>1、打开 <code>gradle.properties</code> 文件，共有两个：<code>Global Properties</code> 和 <code>Project Properties</code>，将其中的</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">修改为</span><br><span class="line"></span><br><span class="line">```org.gradle.configureondemand=false</span><br></pre></td></tr></table></figure>
+<p>或删除该语句，或注释掉该语句。</p>
+<h6 id="2、通过-File-菜单，点击-Settings打开设置。"><a href="#2、通过-File-菜单，点击-Settings打开设置。" class="headerlink" title="2、通过 File 菜单，点击 Settings打开设置。"></a>2、通过 File 菜单，点击 Settings打开设置。</h6><h6 id="3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。"><a href="#3、找到-Build-Execution-Deployment-里面的-Compiler，将右面的-Configure-on-demand-取消勾选。" class="headerlink" title="3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。"></a>3、找到 Build, Execution, Deployment 里面的 Compiler，将右面的 Configure on demand 取消勾选。</h6><p>如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/android/android%20stutio.png?raw=true" alt="去除"></p>
+<p>【注意事项】<br>方法2中，第一步的 <code>gradle.properties</code> 文件，共有两个：Global Properties 和 Project Properties，全都需要修改。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/" data-id="cjjip16ck0001apjhd31hlcoj" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-基于react-native实现情侣小游戏" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/04/基于react-native实现情侣小游戏/" class="article-date">
+  <time datetime="2018-07-04T13:01:03.672Z" itemprop="datePublished">2018-07-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>title: 基于react-native实现情侣小游戏<br>date: 2018-06-25 11:19:33</p>
+<h2 id="tags-react-native"><a href="#tags-react-native" class="headerlink" title="tags: react-native"></a>tags: react-native</h2><p>–</p>
+<h4 id="一、背景"><a href="#一、背景" class="headerlink" title="一、背景"></a>一、背景</h4><p>前段时间，突发奇想，想要自己做一款能够上架的app，就根据react-native进行了开发，其中具有的功能点就是情侣了解度的测试，通过一些情侣应该知道的问题进行测试双方的了解程度，了解的越多，则得分也就越高，在这个app里边区分男方和女方，用户点击进如对应的题库进行答<br>题，最终获取分值.   </p>
+<h4 id="二、效果"><a href="#二、效果" class="headerlink" title="二、效果"></a>二、效果</h4><p><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native/react-native-love-you-deeply_2.gif?raw=true" alt="image">  </p>
+<h4 id="三、下载安装与查看"><a href="#三、下载安装与查看" class="headerlink" title="三、下载安装与查看"></a>三、下载安装与查看</h4><p>1.首先，通过命令进行克隆项目<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/suwu150/LoveYouDeeply.git</span><br></pre></td></tr></table></figure></p>
+<p>也可以直接到网站<a href="https://github.com/suwu150/LoveYouDeeply" target="_blank" rel="noopener">https://github.com/suwu150/LoveYouDeeply</a>进行直接下载到本地<br>2.在下载之后，进入到项目中，执行下面命令进行安装依赖<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>确保安装没有出错，然后运行下面命令<br><code>react-native run-ios</code>或者<code>react-native run-android</code><br>注意，在mac系统中可直接运行<code>react-native run-ios</code>命令，windows系统中，运行react-native run-android这个之前需要确定有模拟器是启动着的或者有真机是连接着的。<br>按照上面的过程实施之后，就可以看到效果了.   </p>
+<h4 id="四、代码及实现过程"><a href="#四、代码及实现过程" class="headerlink" title="四、代码及实现过程"></a>四、代码及实现过程</h4><p>1.项目结构如下所示： </p>
+<p><center><br><img src="https://user-images.githubusercontent.com/20339760/41853485-73dbee9e-78c0-11e8-8c0c-e11b21f77207.png" width="35%" height="25%"><br>项目结构<br></center><br>其中，具体代码写在src中，在src中<code>assets</code>中放置静态资源，components中放置使用到的组件，constants中放置静态常量，pages中放置具体的页面,utils中放置工具类 </p>
+<p>1.主页面代码(home)<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View, Text, TouchableOpacity &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> StringDistinction <span class="keyword">from</span> <span class="string">'react-native-string-distinction'</span>;</span><br><span class="line"><span class="keyword">import</span> styleDict <span class="keyword">from</span> <span class="string">'../../constants/styleDict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Home</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  _toContent = <span class="function">(<span class="params">gender</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; navigation &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    navigation.navigate(<span class="string">'Content'</span>, &#123; gender &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> itemWidth = styleDict.windowW / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">const</span> itemHeight = styleDict.windowH - <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;&#123; <span class="attr">flex</span>: <span class="number">1</span> &#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123; <span class="attr">height</span>: <span class="number">100</span>, <span class="attr">justifyContent</span>: <span class="string">'center'</span>, <span class="attr">alignItems</span>: <span class="string">'center'</span> &#125;&#125;&gt;</span><br><span class="line">          &lt;Text style=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">30</span>, <span class="attr">color</span>: <span class="string">'#ffbbef'</span> &#125;&#125;&gt;选择主人公&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">        &lt;View style=&#123;&#123; <span class="attr">flexDirection</span>: <span class="string">'row'</span>, <span class="attr">justifyContent</span>: <span class="string">'center'</span>,</span><br><span class="line">          alignItems: <span class="string">'center'</span>, <span class="attr">flex</span>: <span class="number">1</span> &#125;&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;TouchableOpacity onPress=&#123;() =&gt; <span class="keyword">this</span>._toContent(<span class="string">'male'</span>)&#125;&gt;</span><br><span class="line">            &lt;View style=&#123;&#123; <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">width</span>: itemWidth, <span class="attr">height</span>: itemHeight, <span class="attr">backgroundColor</span>: <span class="string">'#fcff81'</span>,</span><br><span class="line">              justifyContent: <span class="string">'center'</span>, <span class="attr">alignItems</span>: <span class="string">'center'</span></span><br><span class="line">            &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;StringDistinction</span><br><span class="line">                value=&#123;<span class="string">'我是男主'</span>&#125;</span><br><span class="line">                delimiter=&#123;<span class="string">'男'</span>&#125;</span><br><span class="line">                frontStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">20</span>, <span class="attr">color</span>: <span class="string">'#fd7251'</span> &#125;&#125;</span><br><span class="line">                delimiterStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">30</span>, <span class="attr">color</span>: <span class="string">'#92cbfd'</span> &#125;&#125;</span><br><span class="line">                behindStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">26</span>, <span class="attr">color</span>: <span class="string">'#fd7251'</span> &#125;&#125;</span><br><span class="line">              /&gt;</span><br><span class="line">            &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>TouchableOpacity&gt;</span><br><span class="line">          &lt;TouchableOpacity onPress=&#123;() =&gt; <span class="keyword">this</span>._toContent(<span class="string">'female'</span>)&#125;&gt;</span><br><span class="line">            &lt;View style=&#123;&#123; <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">width</span>: itemWidth, <span class="attr">height</span>: itemHeight, <span class="attr">backgroundColor</span>: <span class="string">'#ffbbef'</span>,</span><br><span class="line">              justifyContent: <span class="string">'center'</span>, <span class="attr">alignItems</span>: <span class="string">'center'</span></span><br><span class="line">            &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;StringDistinction</span><br><span class="line">                value=&#123;<span class="string">'我是女主'</span>&#125;</span><br><span class="line">                delimiter=&#123;<span class="string">'女'</span>&#125;</span><br><span class="line">                frontStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">20</span>, <span class="attr">color</span>: <span class="string">'#fd7251'</span> &#125;&#125;</span><br><span class="line">                delimiterStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">30</span>, <span class="attr">color</span>: <span class="string">'#fd697d'</span> &#125;&#125;</span><br><span class="line">                behindStyle=&#123;&#123; <span class="attr">fontSize</span>: <span class="number">26</span>, <span class="attr">color</span>: <span class="string">'#fd7251'</span> &#125;&#125;</span><br><span class="line">              /&gt;</span><br><span class="line">            &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>TouchableOpacity&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;Text&gt;选择进入测试...&lt;/</span>Text&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>2.内容界面(content)代码如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; View, Text, Image, StyleSheet &#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"><span class="keyword">import</span> SwipeCards <span class="keyword">from</span> <span class="string">'react-native-swipe-cards'</span>;</span><br><span class="line"><span class="keyword">import</span> Card <span class="keyword">from</span> <span class="string">'./card'</span>;</span><br><span class="line"><span class="keyword">import</span> NoMoreCard <span class="keyword">from</span> <span class="string">'./noMoreCard'</span>;</span><br><span class="line"><span class="keyword">import</span> styleDict <span class="keyword">from</span> <span class="string">'../../constants/styleDict'</span>;</span><br><span class="line"><span class="keyword">import</span> randomStyle <span class="keyword">from</span> <span class="string">'../../utils/randomStyle'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> femaleQuestions <span class="keyword">from</span> <span class="string">'../../constants/female_questions.json'</span>;</span><br><span class="line"><span class="keyword">import</span> maleQuestions <span class="keyword">from</span> <span class="string">'../../constants/male_questions.json'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Home</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">const</span> &#123; navigation &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">const</span> &#123; params &#125; = navigation.state;</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;</span><br><span class="line">      gender: params.gender,</span><br><span class="line">      questions: (params.gender === <span class="string">'male'</span> ? maleQuestions : femaleQuestions) || [],</span><br><span class="line">      totalScore: <span class="number">0</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  _handleYup = <span class="function">(<span class="params">card</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 右划-否</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Yup for <span class="subst">$&#123;card.text&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      totalScore: <span class="keyword">this</span>.state.totalScore - card.score &lt;= <span class="number">0</span> ? <span class="number">0</span> : <span class="keyword">this</span>.state.totalScore - card.score</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  _handleNope = <span class="function">(<span class="params">card</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 左划-是</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Nope for <span class="subst">$&#123;card.text&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      totalScore: <span class="keyword">this</span>.state.totalScore + card.score</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  _handleMaybe = <span class="function">(<span class="params">card</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 上划</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`Maybe for <span class="subst">$&#123;card.text&#125;</span>`</span>);</span><br><span class="line">    <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">      totalScore: <span class="keyword">this</span>.state.totalScore + (card.score / <span class="number">2</span>)</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> explainItem = styleDict.windowW / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;&#123; <span class="attr">flex</span>: <span class="number">1</span>, <span class="attr">alignItems</span>: <span class="string">'center'</span> &#125;&#125;&gt;</span><br><span class="line">        &lt;View style=&#123;&#123; <span class="attr">flexDirection</span>: <span class="string">'row'</span>, <span class="attr">alignItems</span>: <span class="string">'center'</span>, <span class="attr">width</span>: styleDict.windowW,</span><br><span class="line">          height: <span class="number">30</span>, <span class="attr">position</span>: <span class="string">'absolute'</span>, <span class="attr">top</span>: <span class="number">0</span>, <span class="attr">zIndex</span>: <span class="number">999</span> &#125;&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;View</span><br><span class="line">            style=&#123;&#123; <span class="attr">width</span>: explainItem, <span class="attr">backgroundColor</span>: <span class="string">'#ffa6f3'</span>, <span class="attr">height</span>: <span class="number">30</span>, <span class="attr">borderBottomRightRadius</span>: <span class="number">30</span>,</span><br><span class="line">              alignItems: <span class="string">'center'</span>, <span class="attr">justifyContent</span>: <span class="string">'center'</span></span><br><span class="line">            &#125;&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;Text</span><br><span class="line">              style=&#123;&#123; <span class="attr">alignSelf</span>: <span class="string">'flex-start'</span>, <span class="attr">textAlign</span>: <span class="string">'left'</span> &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &#123;<span class="string">'左滑选是'</span>&#125;</span><br><span class="line">            &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">          &lt;View</span><br><span class="line">            style=&#123;&#123; <span class="attr">width</span>: explainItem, <span class="attr">backgroundColor</span>: <span class="string">'#ffa6f3'</span>, <span class="attr">height</span>: <span class="number">30</span>, <span class="attr">borderRadius</span>: <span class="number">30</span>,</span><br><span class="line">              alignItems: <span class="string">'center'</span>, <span class="attr">justifyContent</span>: <span class="string">'center'</span> &#125;&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;Text</span><br><span class="line">              style=&#123;&#123; <span class="attr">alignSelf</span>: <span class="string">'center'</span>, <span class="attr">width</span>: explainItem, <span class="attr">textAlign</span>: <span class="string">'center'</span> &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &#123;<span class="string">'上滑也许是吧'</span>&#125;</span><br><span class="line">            &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">          &lt;View</span><br><span class="line">            style=&#123;&#123; <span class="attr">width</span>: explainItem, <span class="attr">backgroundColor</span>: <span class="string">'#ffa6f3'</span>, <span class="attr">height</span>: <span class="number">30</span>, <span class="attr">borderBottomLeftRadius</span>: <span class="number">30</span>,</span><br><span class="line">              alignItems: <span class="string">'center'</span>, <span class="attr">justifyContent</span>: <span class="string">'center'</span> &#125;&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;Text</span><br><span class="line">              style=&#123;&#123; <span class="attr">alignSelf</span>: <span class="string">'flex-end'</span>, <span class="attr">width</span>: explainItem, <span class="attr">textAlign</span>: <span class="string">'right'</span> &#125;&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &#123;<span class="string">'右滑选否'</span>&#125;</span><br><span class="line">            &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">        &lt;View style=&#123;&#123; flex: 1 &#125;&#125;&gt;</span></span><br><span class="line"><span class="regexp">          &lt;SwipeCards</span></span><br><span class="line"><span class="regexp">            cards=&#123;this.state.questions&#125;</span></span><br><span class="line"><span class="regexp">            renderCard=&#123;(cardData) =&gt; &lt;Card &#123;...cardData&#125; /</span>&gt;&#125;</span><br><span class="line">            renderNoMoreCards=&#123;() =&gt; &lt;NoMoreCard /&gt;&#125;</span><br><span class="line">            handleYup=&#123;this._handleYup&#125;</span><br><span class="line">            handleNope=&#123;this._handleNope&#125;</span><br><span class="line">            handleMaybe=&#123;this._handleMaybe&#125;</span><br><span class="line">            yupTextStyle=&#123;&#123; color: '#ff6559' &#125;&#125;</span><br><span class="line">            yupText="否"</span><br><span class="line">            yupStyle=&#123;&#123; borderColor: '#ff6559' &#125;&#125;</span><br><span class="line">            nopeStyle=&#123;&#123; borderColor: '#3d7d29' &#125;&#125;</span><br><span class="line">            nopeTextStyle=&#123;&#123; color: '#3d7d29' &#125;&#125;</span><br><span class="line">            nopeText="是"</span><br><span class="line">            maybeText="也许是吧"</span><br><span class="line">            hasMaybeAction</span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;/View&gt;</span><br><span class="line">        &lt;Image</span><br><span class="line">          source=&#123;<span class="built_in">require</span>(<span class="string">'../../assets/images/heart.jpg'</span>)&#125;</span><br><span class="line">          style=&#123;&#123; <span class="attr">width</span>: styleDict.windowW, <span class="attr">height</span>: <span class="number">50</span>, <span class="attr">resizeMode</span>: Image.resizeMode.stretch, <span class="attr">opacity</span>: <span class="number">0.7</span> &#125;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &lt;View style=&#123;&#123;</span><br><span class="line">          height: <span class="number">150</span>,</span><br><span class="line">          width: styleDict.windowW,</span><br><span class="line">          justifyContent: <span class="string">'center'</span>,</span><br><span class="line">          alignItems: <span class="string">'center'</span>,</span><br><span class="line">          backgroundColor: <span class="keyword">this</span>.state.gender === <span class="string">'male'</span> ? <span class="string">'#ffe144'</span> : <span class="string">'#ffa0c4'</span></span><br><span class="line">        &#125;&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;Text style=&#123;randomStyle()&#125;&gt;&#123;<span class="keyword">this</span>.state.totalScore&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">      &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">    );</span></span><br><span class="line"><span class="regexp">  &#125;</span></span><br><span class="line"><span class="regexp">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="五、下一版本待做功能"><a href="#五、下一版本待做功能" class="headerlink" title="五、下一版本待做功能"></a>五、下一版本待做功能</h4><p>[].增加远程服务器，进行数据存储<br>[].增加用户自己提交问题的功能</p>
+<h4 id="六、仓库地址"><a href="#六、仓库地址" class="headerlink" title="六、仓库地址"></a>六、仓库地址</h4><p>欢迎访问代码仓库：<a href="https://github.com/suwu150/LoveYouDeeply" target="_blank" rel="noopener">https://github.com/suwu150/LoveYouDeeply</a> 点赞加星星</p>
+<h4 id="七、发布地址"><a href="#七、发布地址" class="headerlink" title="七、发布地址"></a>七、发布地址</h4><p>安卓app已经发布到<a href="http://shouji.baidu.com/software/24185511.html" target="_blank" rel="noopener">百度手机助手</a>,点击下载装到你的手机吧！！<br>其他发布地址正在跟进中…</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/04/基于react-native实现情侣小游戏/" data-id="cjjip16dj000oapjhxs87p9al" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-react-native中打包静态js" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/06/20/react-native中打包静态js/" class="article-date">
@@ -84,14 +457,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res/ --dev <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+        <p>在打包apk文件之前，我们需要将js文件代码和代码中使用的图片进行打包，然后提供给apk进行使用，打包命令行如下所示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">react-native bundle --entry-file index.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res/ --dev <span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjin9n86y0000lnjh5nwrj7ij" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/20/react-native中打包静态js/" data-id="cjjip16co0003apjhue2vnxd8" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native-android/">react-native,android</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
 
     </footer>
   </div>
@@ -171,7 +545,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjin9n8760003lnjhoc6chtdw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/18/react-native实现树结构选择组件/" data-id="cjjip16cr0005apjh4uge9mao" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -271,7 +645,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjin9n8770004lnjhiapurl6c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native实现字符串样式分割组件/" data-id="cjjip16cs0008apjhh3sp0vuc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -400,7 +774,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjin9n8730001lnjhq1i0e891" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/06/17/react-native自定义文本输入框/" data-id="cjjip16de000kapjhecsuis9r" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
@@ -412,265 +786,12 @@
 
 
   
-    <article id="post-react-native自定义按钮" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/17/react-native自定义按钮/" class="article-date">
-  <time datetime="2018-06-17T12:27:59.000Z" itemprop="datePublished">2018-06-17</time>
-</a>
+
+
+  <nav id="page-nav">
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/react-native自定义按钮/">react-native自定义按钮</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="The-final-rendering"><a href="#The-final-rendering" class="headerlink" title="The final rendering"></a>The final rendering</h2><p><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native-custome-button.gif?raw=true" alt="The final rendering"><br><img src="https://github.com/suwu150/static-resource/blob/master/images/react-native-custome-button-image.gif?raw=true" alt="The final rendering-image">          </p>
-<h2 id="Description"><a href="#Description" class="headerlink" title="Description: "></a>Description: </h2><p>A custom button component that should render nicely on any platform. Supports a minimal level of customization.     </p>
-<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation:  "></a>Installation:  </h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install --save react-native-customer-button</span><br></pre></td></tr></table></figure>
-<h2 id="Example-usage"><a href="#Example-usage" class="headerlink" title="Example usage: "></a>Example usage: </h2><p>1.basic     </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">import Button from &apos;react-native-customer-button&apos;;</span><br><span class="line">   ...</span><br><span class="line">   _onPress = () =&gt; &#123;</span><br><span class="line">     console.log(&apos;onPress&apos;);</span><br><span class="line">   &#125;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">        &lt;Button onPress=&#123;this._onPress&#125; /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h2 id="Props"><a href="#Props" class="headerlink" title="Props:   "></a>Props:   </h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Props</th>
-<th style="text-align:left">Explain</th>
-<th style="text-align:left">type</th>
-<th style="text-align:left">require</th>
-<th style="text-align:left">default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">onPress</td>
-<td style="text-align:left">handler to be called when the user taps the button</td>
-<td style="text-align:left">function</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">no</td>
-</tr>
-<tr>
-<td style="text-align:left">title</td>
-<td style="text-align:left">text to display inside the button</td>
-<td style="text-align:left">string</td>
-<td style="text-align:left">yes</td>
-<td style="text-align:left">ok</td>
-</tr>
-<tr>
-<td style="text-align:left">disabled</td>
-<td style="text-align:left">If true, disable all interactions for this component.</td>
-<td style="text-align:left">bool</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">false</td>
-</tr>
-<tr>
-<td style="text-align:left">style</td>
-<td style="text-align:left">button style,The style used to modify the button</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{ backgroundColor: ‘#43CCFF’,height: 30,width: 100,}</td>
-</tr>
-<tr>
-<td style="text-align:left">textStyle</td>
-<td style="text-align:left">The style of the text in the button</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{fontSize: 15, color: ‘#000000’}</td>
-</tr>
-<tr>
-<td style="text-align:left">icon</td>
-<td style="text-align:left">button icon file resource, resource file introduced by require</td>
-<td style="text-align:left">Image resources</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">no</td>
-</tr>
-<tr>
-<td style="text-align:left">iconStyle</td>
-<td style="text-align:left">Image’s style</td>
-<td style="text-align:left">object</td>
-<td style="text-align:left">no</td>
-<td style="text-align:left">{}</td>
-</tr>
-</tbody>
-</table>
-<p>Examples from props:<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">   <span class="keyword">return</span> (</span><br><span class="line">     &lt;View style=&#123;styles.container&#125;&gt;</span><br><span class="line">       &lt;Text style=&#123;&#123; <span class="attr">marginBottom</span>: <span class="number">10</span> &#125;&#125;&gt;&#123;<span class="keyword">this</span>.state.count&#125;&lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">       &lt;Button</span></span><br><span class="line"><span class="regexp">         style=&#123;&#123; marginBottom: 5 &#125;&#125;</span></span><br><span class="line"><span class="regexp">         onPress=&#123;() =&gt; this.setState(&#123; count: this.state.count + 1 &#125;)&#125;</span></span><br><span class="line"><span class="regexp">       /</span>&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'cancel'</span>&#125;</span><br><span class="line">         style=&#123;&#123; <span class="attr">marginBottom</span>: <span class="number">5</span> &#125;&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'cancel'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'submit'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'white font'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         textStyle=&#123;&#123;</span><br><span class="line">           color: <span class="string">'#fff'</span>,</span><br><span class="line">           fontSize: <span class="number">16</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         underlayColor=&#123;<span class="string">'#ff0'</span>&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">       &lt;Button</span><br><span class="line">         title=&#123;<span class="string">'white font'</span>&#125;</span><br><span class="line">         style=&#123;&#123;</span><br><span class="line">           marginBottom: <span class="number">5</span>,</span><br><span class="line">           backgroundColor: <span class="string">'gray'</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         textStyle=&#123;&#123;</span><br><span class="line">           color: <span class="string">'#fff'</span>,</span><br><span class="line">           fontSize: <span class="number">16</span></span><br><span class="line">         &#125;&#125;</span><br><span class="line">         icon=&#123;<span class="built_in">require</span>(<span class="string">'../constants/icon_user.png'</span>)&#125;</span><br><span class="line">         underlayColor=&#123;<span class="string">'#ff0'</span>&#125;</span><br><span class="line">         onPress=&#123;() =&gt; <span class="keyword">this</span>.setState(&#123; <span class="attr">count</span>: <span class="string">'submit'</span> &#125;)&#125;</span><br><span class="line">       /&gt;</span><br><span class="line">     &lt;<span class="regexp">/View&gt;</span></span><br><span class="line"><span class="regexp">   );</span></span><br><span class="line"><span class="regexp"> &#125;</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;</span><br><span class="line">  ViewPropTypes,</span><br><span class="line">  TouchableOpacity,</span><br><span class="line">  TouchableHighlight,</span><br><span class="line">  Text,</span><br><span class="line">  View,</span><br><span class="line">  StyleSheet,</span><br><span class="line">  Image</span><br><span class="line">&#125; <span class="keyword">from</span> <span class="string">'react-native'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> NoDoublePress = &#123;</span><br><span class="line">  lastPressTime: <span class="number">1</span>,</span><br><span class="line">  onPress(callback) &#123;</span><br><span class="line">    <span class="keyword">const</span> curTime = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime();</span><br><span class="line">    <span class="keyword">if</span> (curTime - <span class="keyword">this</span>.lastPressTime &gt; <span class="number">1000</span>) &#123;</span><br><span class="line">      <span class="keyword">this</span>.lastPressTime = curTime;</span><br><span class="line">      callback();</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> styles = StyleSheet.create(&#123;</span><br><span class="line">  defaultStyle: &#123;</span><br><span class="line">    backgroundColor: <span class="string">'#43CCFF'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span>,</span><br><span class="line">    height: <span class="number">30</span>,</span><br><span class="line">    width: <span class="number">100</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  defaultTouchStyle: &#123;</span><br><span class="line">    width: <span class="string">'100%'</span>,</span><br><span class="line">    height: <span class="string">'100%'</span>,</span><br><span class="line">    flexDirection: <span class="string">'row'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  defaultTextStyle: &#123;</span><br><span class="line">    fontSize: <span class="number">15</span>,</span><br><span class="line">    color: <span class="string">'#000000'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  defaultRowContainer: &#123;</span><br><span class="line">    flexDirection: <span class="string">'row'</span>,</span><br><span class="line">    justifyContent: <span class="string">'center'</span>,</span><br><span class="line">    alignItems: <span class="string">'center'</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">RNButton</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(props) &#123;</span><br><span class="line">    <span class="keyword">super</span>(props);</span><br><span class="line">    <span class="keyword">this</span>.state = &#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> propTypes = &#123;</span><br><span class="line">    title: PropTypes.string,</span><br><span class="line">    style: ViewPropTypes.style,</span><br><span class="line">    underlayColor: PropTypes.string,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">static</span> defaultProps = &#123;</span><br><span class="line">    title: <span class="string">'ok'</span>,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  onPress = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;</span><br><span class="line">    NoDoublePress.onPress(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">this</span>.props.onPress &amp;&amp; <span class="keyword">this</span>.props.onPress(e);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  renderIcon = <span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; icon, iconStyle = &#123;&#125; &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;Image source=&#123;icon&#125; style=&#123;iconStyle&#125; /&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">const</span> &#123; title &#125; = <span class="keyword">this</span>.props;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.underlayColor) &#123;</span><br><span class="line">      <span class="keyword">return</span> (</span><br><span class="line">        &lt;View style=&#123;[styles.defaultStyle, <span class="keyword">this</span>.props.style]&#125;&gt;</span><br><span class="line">          &lt;TouchableHighlight</span><br><span class="line">            style=&#123;[styles.defaultTouchStyle]&#125;</span><br><span class="line">            onPress=&#123;<span class="keyword">this</span>.onPress&#125;</span><br><span class="line">            underlayColor=&#123;<span class="keyword">this</span>.props.underlayColor&#125;</span><br><span class="line">          &gt;</span><br><span class="line">            &lt;View style=&#123;styles.defaultRowContainer&#125;&gt;</span><br><span class="line">              &#123;<span class="keyword">this</span>.renderIcon()&#125;</span><br><span class="line">              &lt;Text</span><br><span class="line">                style=&#123;[styles.defaultTextStyle, <span class="keyword">this</span>.props.textStyle]&#125;</span><br><span class="line">              &gt;</span><br><span class="line">                &#123;<span class="keyword">this</span>.props.title&#125;</span><br><span class="line">              &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>View&gt;</span><br><span class="line">          &lt;<span class="regexp">/TouchableHighlight&gt;</span></span><br><span class="line"><span class="regexp">        &lt;/</span>View&gt;</span><br><span class="line">      );</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      &lt;View style=&#123;[styles.defaultStyle, <span class="keyword">this</span>.props.style]&#125;&gt;</span><br><span class="line">        &lt;TouchableOpacity</span><br><span class="line">          style=&#123;[styles.defaultTouchStyle]&#125;</span><br><span class="line">          onPress=&#123;<span class="keyword">this</span>.onPress&#125;</span><br><span class="line">        &gt;</span><br><span class="line">          &lt;View style=&#123;styles.defaultRowContainer&#125;&gt;</span><br><span class="line">            &#123;<span class="keyword">this</span>.renderIcon()&#125;</span><br><span class="line">            &lt;Text</span><br><span class="line">              style=&#123;[styles.defaultTextStyle, <span class="keyword">this</span>.props.textStyle]&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &#123;<span class="keyword">this</span>.props.title&#125;</span><br><span class="line">            &lt;<span class="regexp">/Text&gt;</span></span><br><span class="line"><span class="regexp">          &lt;/</span>View&gt;</span><br><span class="line">        &lt;<span class="regexp">/TouchableOpacity&gt;</span></span><br><span class="line"><span class="regexp">      &lt;/</span>View&gt;</span><br><span class="line"></span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> RNButton;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/react-native自定义按钮/" data-id="cjin9n8780005lnjhx2ohi92g" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-基于react开发的可伸缩tabs" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/06/17/基于react开发的可伸缩tabs/" class="article-date">
-  <time datetime="2018-06-17T08:57:33.000Z" itemprop="datePublished">2018-06-17</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/06/17/基于react开发的可伸缩tabs/">基于react开发的可伸缩tabs</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>1.效果如下所示：<br><img src="https://github.com/suwu150/static-resource/blob/master/images/react/react-flex-tabs.gif?raw=true" alt="react-flex-tabs"><br>2.自己安装查看效果<br>  先克隆该项目<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/suwu150/react-flex-tabs.git</span><br></pre></td></tr></table></figure></p>
-<p>  然后通过以下命令安装依赖<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
-<p>  通过以下命令运行项目<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm start</span><br></pre></td></tr></table></figure></p>
-<p>3.flex-tabs组件简介 </p>
-<p>   a. 能够通过传入的对象数据进行增加tab，每当点击传入数据时就会进行添加数据到总的tabs中，能够进行拖动交换位置、删除，当<br>    点击的tab超过页面能够展示的最大宽度时，进行将第一个tab进行折叠，也能够在折叠的tab中进行点击，展开需要打开的tab页面<br>    ，在折叠tab中也能够进行删除之前打开的tab<br>   b.在删除的时候，会按照打开时的队列进行展示被选中的tab页面<br>4.使用说明<br>通过下面代码进行新增tab页面</p>
-<pre><code class="$js">if (this.flexTabs) {
-  const tab = {
-    __id,
-    name: data[__id]
-  };
-  this.flexTabs.createTab(tab);
-}
-</code></pre>
-<p>其中主要方法是createTab，进行创建tab，__id是tab的唯一编号，name用于展示在tab标签上面<br>5.主要方法用法说明</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">用途</th>
-<th style="text-align:center">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">_executeCb</td>
-<td style="text-align:center">回调检查</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">__initCom</td>
-<td style="text-align:center">初始化组件</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">checkWidth</td>
-<td style="text-align:center">检查页面的宽度</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">createTab</td>
-<td style="text-align:center">创建tab，添加到tabs页面中</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_addQueueLast</td>
-<td style="text-align:center">打开的tab顺序</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteQueueItem</td>
-<td style="text-align:center">删除打开的tabs顺序中的一项</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_updateTab</td>
-<td style="text-align:center">创建tab时进行更新tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_isExistSpaceIfAdd</td>
-<td style="text-align:center">添加tab时判断是否还有多余空间</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_closeAllTabs</td>
-<td style="text-align:center">关闭所有tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_closeOtherTabs</td>
-<td style="text-align:center">关闭其他tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteTab</td>
-<td style="text-align:center">删除某一具体的tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_clickTab</td>
-<td style="text-align:center">点击tab页</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_dropHiddenDown</td>
-<td style="text-align:center">点击展开折叠起来的tab开关</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_selectTabCollapse</td>
-<td style="text-align:center">选择折叠起来的tab</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_deleteTabCollapse</td>
-<td style="text-align:center">删除折叠起来的tabs中的某一个</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_sortableGroupDecorator</td>
-<td style="text-align:center">拖动排序</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_changesOperateCollapse</td>
-<td style="text-align:center">改变展开折叠状态</td>
-<td style="text-align:center"></td>
-</tr>
-<tr>
-<td style="text-align:center">_getTabName</td>
-<td style="text-align:center">获取tab的名字</td>
-</tr>
-</tbody>
-</table>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/06/17/基于react开发的可伸缩tabs/" data-id="cjin9n87a0008lnjhgt40griu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/react/">react</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -683,7 +804,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native-android/">react-native,android</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react/">react</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/react-native/">react-native</a></li></ul>
     </div>
   </div>
 
@@ -693,7 +814,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a> <a href="/tags/react-native-android/" style="font-size: 10px;">react-native,android</a>
+      <a href="/tags/Android/" style="font-size: 15px;">Android</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/react-native/" style="font-size: 20px;">react-native</a>
     </div>
   </div>
 
@@ -702,7 +823,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">June 2018</a></li></ul>
     </div>
   </div>
 
@@ -715,23 +836,23 @@
       <ul>
         
           <li>
-            <a href="/2018/06/20/react-native中打包静态js/">rēact-native中打包静态js</a>
+            <a href="/2018/07/11/react-native应用集成地理逆编码/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2018/06/18/react-native实现树结构选择组件/">react-native实现树结构选择组件</a>
+            <a href="/2018/07/10/Android中gradlew命令的基本使用/">Android中gradlew命令的基本使用</a>
           </li>
         
           <li>
-            <a href="/2018/06/17/react-native实现字符串样式分割组件/">react-native实现字符串样式分割组件</a>
+            <a href="/2018/07/10/react-native修改应用启动页/">react-native修改应用启动页</a>
           </li>
         
           <li>
-            <a href="/2018/06/17/react-native自定义文本输入框/">react-native自定义文本输入框</a>
+            <a href="/2018/07/10/react-native打包Android应用问题及安装汇总/">react-native打包Android应用问题及安装汇总</a>
           </li>
         
           <li>
-            <a href="/2018/06/17/react-native自定义按钮/">react-native自定义按钮</a>
+            <a href="/2018/07/09/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle/">Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle</a>
           </li>
         
       </ul>
