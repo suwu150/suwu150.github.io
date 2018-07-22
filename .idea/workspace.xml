@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e87a40bf-9a8b-4ebd-ad87-f27973855958" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/source/_posts/react-native中打包静态js.md" afterPath="$PROJECT_DIR$/source/_posts/react-native中打包静态js.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -38,12 +36,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="react-native应用集成地理逆编码.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="react-native应用集成地理逆编码.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/react-native应用集成地理逆编码.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="498">
-                <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
+              <first_editor relative-caret-position="3855">
+                <caret line="257" column="3" lean-forward="false" selection-start-line="257" selection-start-column="3" selection-end-line="257" selection-end-column="3" />
                 <folding>
                   <marker date="1532184424025" expanded="true" signature="2483:2564" ph="{...}" />
                   <marker date="1532184424025" expanded="true" signature="2591:2654" ph="{...}" />
@@ -116,41 +114,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="react-native实现字符串样式分割组件.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/react-native实现字符串样式分割组件.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="615">
-                <caret line="41" column="23" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-                <folding>
-                  <marker date="1529242383133" expanded="true" signature="704:998" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="727:987" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="1584:3391" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="1607:3378" ph="&lt;View/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="1623:1891" ph="&lt;Text/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="1901:2167" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="2177:2442" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="2452:2727" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="2737:3008" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="3018:3290" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="3300:3363" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="3451:3581" ph="..." />
-                  <marker date="1529242383133" expanded="true" signature="3640:4741" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="3663:3897" ph="{&quot;frontStyle&quot;: TextInput.propTypes.style...}" />
-                  <marker date="1529242383133" expanded="true" signature="3924:3978" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="3937:3973" ph="{&quot;alignItems&quot;: 'flex-end'...}" />
-                  <marker date="1529242383133" expanded="true" signature="3992:4739" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="4237:4305" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="4327:4481" ph="{...}" />
-                  <marker date="1529242383133" expanded="true" signature="4352:4466" ph="&lt;View/&gt;" />
-                  <marker date="1529242383133" expanded="true" signature="4502:4728" ph="&lt;View/&gt;" />
-                </folding>
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="react-native修改应用启动页.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/react-native修改应用启动页.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
@@ -167,9 +130,76 @@
       <file leaf-file-name="react-native使用jenkins自动化构建android和ios应用实践.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/source/_posts/react-native使用jenkins自动化构建android和ios应用实践.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="405">
+                <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="react-native打包发布apk.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/source/_posts/react-native打包发布apk.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
+              <first_editor relative-caret-position="-674">
+                <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="react-native中打包静态js.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/react-native中打包静态js.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="135">
+                <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Android中gradlew命令的基本使用.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Android中gradlew命令的基本使用.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="2265">
+                <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
+                <folding>
+                  <marker date="1531314655794" expanded="true" signature="2939:3014" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="3016:3079" ph="//..." />
+                  <marker date="1531314655794" expanded="true" signature="3108:4315" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="3150:4309" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="3174:3716" ph="//..." />
+                  <marker date="1531314655794" expanded="true" signature="3861:4299" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="3925:4038" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="4088:4211" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="4456:5584" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="4497:5578" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="4521:5063" ph="//..." />
+                  <marker date="1531314655794" expanded="true" signature="5161:5568" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="5225:5338" ph="{...}" />
+                  <marker date="1531314655794" expanded="true" signature="5388:5511" ph="{...}" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/source/_posts/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
               <first_editor relative-caret-position="435">
-                <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+                <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
                 <folding />
               </first_editor>
               <second_editor />
@@ -187,137 +217,6 @@
                   <marker date="1531802205570" expanded="true" signature="1782:1843" ph="..." />
                   <marker date="1531802205570" expanded="true" signature="2223:2395" ph="{&quot;frontStyle&quot;: TextInput.propTypes.style...}" />
                 </folding>
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="react-native自定义文本输入框.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义文本输入框.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="3315">
-                <caret line="228" column="30" lean-forward="false" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
-                <folding>
-                  <marker date="1529242269060" expanded="true" signature="564:607" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="1558:1602" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="1616:2112" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="1637:2101" ph="&lt;View/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="1677:1729" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="false" signature="2170:2315" ph="..." />
-                  <marker date="1529242269060" expanded="true" signature="2350:2424" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="2362:2422" ph="{&quot;justifyContent&quot;: 'center'...}" />
-                  <marker date="1529242269060" expanded="true" signature="2458:7679" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="2481:2874" ph="{&quot;inputStyle&quot;: TextInput.propTypes.style...}" />
-                  <marker date="1529242269060" expanded="true" signature="2901:3055" ph="{&quot;placeholderTextColor&quot;: '##ccc8c4'...}" />
-                  <marker date="1529242269060" expanded="true" signature="3079:3185" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3116:3180" ph="{&quot;textAlign&quot;: 'right'...}" />
-                  <marker date="1529242269060" expanded="true" signature="3226:3334" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3274:3330" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3363:3486" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3508:3626" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3588:3620" ph="{&quot;textAlign&quot;: 'right'...}" />
-                  <marker date="1529242269060" expanded="true" signature="3649:3769" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3732:3763" ph="{&quot;textAlign&quot;: 'left'...}" />
-                  <marker date="1529242269060" expanded="true" signature="3802:5231" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="3941:4766" ph="&lt;View/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="4052:4629" ph="&lt;TextInput/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="4226:4390" ph="[...]" />
-                  <marker date="1529242269060" expanded="true" signature="4227:4373" ph="{&quot;color&quot;: '##332f2b'...}" />
-                  <marker date="1529242269060" expanded="true" signature="4640:4750" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="4785:5220" ph="&lt;View/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="4924:5083" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="5094:5204" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="5267:6202" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="5398:5970" ph="&lt;TextInput/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="5617:5743" ph="[...]" />
-                  <marker date="1529242269060" expanded="true" signature="5981:6191" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="6004:6146" ph="[...]" />
-                  <marker date="1529242269060" expanded="true" signature="6005:6129" ph="{&quot;textAlign&quot;: 'left'...}" />
-                  <marker date="1529242269060" expanded="true" signature="6216:7677" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="6313:6913" ph="{...}" />
-                  <marker date="1529242269060" expanded="true" signature="6338:6898" ph="&lt;View/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="6361:6633" ph="{&quot;width&quot;: '100%'...}" />
-                  <marker date="1529242269060" expanded="true" signature="6655:6838" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="6933:7666" ph="&lt;View/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="6954:7164" ph="[...]" />
-                  <marker date="1529242269060" expanded="true" signature="6955:7148" ph="{&quot;width&quot;: '100%'...}" />
-                  <marker date="1529242269060" expanded="true" signature="7182:7613" ph="&lt;Text/&gt;" />
-                  <marker date="1529242269060" expanded="true" signature="7195:7472" ph="[...]" />
-                  <marker date="1529242269060" expanded="true" signature="7207:7435" ph="{&quot;flexDirection&quot;: 'row'...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="基于react-native实现情侣小游戏.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/基于react-native实现情侣小游戏.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="525">
-                <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
-                <folding>
-                  <marker date="1530709263671" expanded="true" signature="1168:1379" ph="..." />
-                  <marker date="1530709263671" expanded="true" signature="1425:3316" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="1454:1546" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="1560:3314" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="1673:3303" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="1708:1874" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="1883:3258" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="1896:1987" ph="{&quot;flexDirection&quot;: 'row'...}" />
-                  <marker date="1530709263671" expanded="true" signature="2009:2619" ph="&lt;TouchableOpacity/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="2080:2589" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="2093:2244" ph="{&quot;width&quot;: itemWidth...}" />
-                  <marker date="1530709263671" expanded="true" signature="2274:2569" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="2630:3242" ph="&lt;TouchableOpacity/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="2703:3212" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="2716:2867" ph="{&quot;width&quot;: itemWidth...}" />
-                  <marker date="1530709263671" expanded="true" signature="2897:3192" ph="&lt;StringDistinction/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="3358:3808" ph="..." />
-                  <marker date="1530709263671" expanded="true" signature="3854:7374" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="3877:4140" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="3994:4135" ph="{&quot;gender&quot;: params.gender...}" />
-                  <marker date="1530709263671" expanded="true" signature="4167:4352" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4240:4346" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4381:4521" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4455:4515" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4551:4696" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4624:4690" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4710:7372" ph="{...}" />
-                  <marker date="1530709263671" expanded="true" signature="4778:7361" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="4835:6143" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="4848:4985" ph="{&quot;flexDirection&quot;: 'row'...}" />
-                  <marker date="1530709263671" expanded="true" signature="5007:5372" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="5032:5197" ph="{&quot;width&quot;: explainItem...}" />
-                  <marker date="1530709263671" expanded="true" signature="5223:5354" ph="&lt;Text/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="5383:5745" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="5408:5550" ph="{&quot;width&quot;: explainItem...}" />
-                  <marker date="1530709263671" expanded="true" signature="5576:5727" ph="&lt;Text/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="5756:6127" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="5781:5933" ph="{&quot;width&quot;: explainItem...}" />
-                  <marker date="1530709263671" expanded="true" signature="5959:6109" ph="&lt;Text/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="6152:6814" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="6189:6798" ph="&lt;SwipeCards/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="6823:7011" ph="&lt;Image/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="7020:7347" ph="&lt;View/&gt;" />
-                  <marker date="1530709263671" expanded="true" signature="7033:7251" ph="{&quot;width&quot;: styleDict.windowW...}" />
-                </folding>
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="基于react开发的可伸缩tabs.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="360">
-                <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-                <folding />
               </first_editor>
               <second_editor />
             </state>
@@ -359,6 +258,7 @@
         <option value="$PROJECT_DIR$/source/_posts/react-native使用jenkins自动化构建android和ios应用实践.md" />
         <option value="$PROJECT_DIR$/source/_posts/react-native打包release版本闪退.md" />
         <option value="$PROJECT_DIR$/source/_posts/react-native应用集成地理逆编码.md" />
+        <option value="$PROJECT_DIR$/source/_posts/react-native打包发布apk.md" />
       </list>
     </option>
   </component>
@@ -378,10 +278,9 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="339" />
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="y" value="23" />
-    <option name="width" value="1101" />
+    <option name="width" value="1440" />
     <option name="height" value="797" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -417,6 +316,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -439,7 +339,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -505,26 +404,26 @@
       <workItem from="1531835778200" duration="217000" />
       <workItem from="1531900657880" duration="3251000" />
       <workItem from="1531960470240" duration="4330000" />
-      <workItem from="1532138639935" duration="2517000" />
+      <workItem from="1532138639935" duration="3034000" />
+      <workItem from="1532228206328" duration="920000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64942000" />
+    <option name="totallyTimeSpent" value="66379000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="339" y="23" width="1101" height="797" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="1" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24166666" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2896406" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35042736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34900284" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -545,16 +444,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/source/_posts/基于react-native实现情侣小游戏.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="120">
-            <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -831,41 +720,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义按钮.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native实现字符串样式分割组件.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
+          <first_editor relative-caret-position="615">
+            <caret line="41" column="23" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="360">
+            <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/基于react-native实现情侣小游戏.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="-2347">
+            <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义文本输入框.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="445">
+            <caret line="228" column="30" lean-forward="false" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义按钮.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
           <first_editor relative-caret-position="360">
             <caret line="24" column="13" lean-forward="false" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <folding>
+              <marker date="1529238706458" expanded="true" signature="1779:3157" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="1800:3146" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="1909:2038" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2047:2191" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2200:2403" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2252:2330" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2412:2740" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2468:2546" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2569:2634" ph="{&quot;color&quot;: '##fff'...}" />
+              <marker date="1529238706458" expanded="true" signature="2749:3132" ph="&lt;Button/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="2805:2883" ph="{&quot;backgroundColor&quot;: 'gray'...}" />
+              <marker date="1529238706458" expanded="true" signature="2906:2971" ph="{&quot;color&quot;: '##fff'...}" />
+              <marker date="1529238706458" expanded="true" signature="3218:3417" ph="..." />
+              <marker date="1529238706458" expanded="true" signature="3441:3640" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3483:3637" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3572:3633" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3676:4146" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="3694:3819" ph="{&quot;backgroundColor&quot;: '##43CCFF'...}" />
+              <marker date="1529238706458" expanded="true" signature="3842:3967" ph="{&quot;width&quot;: '100%'...}" />
+              <marker date="1529238706458" expanded="true" signature="3989:4033" ph="{&quot;color&quot;: '##000000'...}" />
+              <marker date="1529238706458" expanded="true" signature="4058:4144" ph="{&quot;flexDirection&quot;: 'row'...}" />
+              <marker date="1529238706458" expanded="true" signature="4183:5869" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4206:4250" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4273:4376" ph="{&quot;title&quot;: PropTypes.string...}" />
+              <marker date="1529238706458" expanded="true" signature="4403:4425" ph="{&quot;title&quot;: 'ok'...}" />
+              <marker date="1529238706458" expanded="true" signature="4447:4545" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4481:4539" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4569:4691" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4705:5867" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4775:5367" ph="{...}" />
+              <marker date="1529238706458" expanded="true" signature="4800:5352" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="4865:5336" ph="&lt;TouchableHighlight/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5044:5304" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5134:5284" ph="&lt;Text/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5388:5855" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5451:5841" ph="&lt;TouchableOpacity/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5567:5813" ph="&lt;View/&gt;" />
+              <marker date="1529238706458" expanded="true" signature="5653:5795" ph="&lt;Text/&gt;" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native打包release版本闪退.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="435">
-            <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/Android中gradlew命令的基本使用.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="2265">
-            <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native中打包静态js.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="135">
-            <caret line="9" column="3" lean-forward="false" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+          <first_editor relative-caret-position="900">
+            <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+            <folding>
+              <marker date="1531802205570" expanded="true" signature="1782:1843" ph="..." />
+              <marker date="1531802205570" expanded="true" signature="2223:2395" ph="{&quot;frontStyle&quot;: TextInput.propTypes.style...}" />
+            </folding>
           </first_editor>
           <second_editor />
         </state>
@@ -889,125 +842,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/基于react开发的可伸缩tabs.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native应用集成地理逆编码.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="360">
-            <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/基于react-native实现情侣小游戏.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="525">
-            <caret line="35" column="9" lean-forward="false" selection-start-line="35" selection-start-column="9" selection-end-line="35" selection-end-column="9" />
+          <first_editor relative-caret-position="3855">
+            <caret line="257" column="3" lean-forward="false" selection-start-line="257" selection-start-column="3" selection-end-line="257" selection-end-column="3" />
             <folding>
-              <marker date="1530709263671" expanded="true" signature="1168:1379" ph="..." />
-              <marker date="1530709263671" expanded="true" signature="1425:3316" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="1454:1546" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="1560:3314" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="1673:3303" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="1708:1874" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="1883:3258" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="1896:1987" ph="{&quot;flexDirection&quot;: 'row'...}" />
-              <marker date="1530709263671" expanded="true" signature="2009:2619" ph="&lt;TouchableOpacity/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="2080:2589" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="2093:2244" ph="{&quot;width&quot;: itemWidth...}" />
-              <marker date="1530709263671" expanded="true" signature="2274:2569" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="2630:3242" ph="&lt;TouchableOpacity/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="2703:3212" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="2716:2867" ph="{&quot;width&quot;: itemWidth...}" />
-              <marker date="1530709263671" expanded="true" signature="2897:3192" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="3358:3808" ph="..." />
-              <marker date="1530709263671" expanded="true" signature="3854:7374" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="3877:4140" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="3994:4135" ph="{&quot;gender&quot;: params.gender...}" />
-              <marker date="1530709263671" expanded="true" signature="4167:4352" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4240:4346" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4381:4521" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4455:4515" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4551:4696" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4624:4690" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4710:7372" ph="{...}" />
-              <marker date="1530709263671" expanded="true" signature="4778:7361" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="4835:6143" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="4848:4985" ph="{&quot;flexDirection&quot;: 'row'...}" />
-              <marker date="1530709263671" expanded="true" signature="5007:5372" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="5032:5197" ph="{&quot;width&quot;: explainItem...}" />
-              <marker date="1530709263671" expanded="true" signature="5223:5354" ph="&lt;Text/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="5383:5745" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="5408:5550" ph="{&quot;width&quot;: explainItem...}" />
-              <marker date="1530709263671" expanded="true" signature="5576:5727" ph="&lt;Text/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="5756:6127" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="5781:5933" ph="{&quot;width&quot;: explainItem...}" />
-              <marker date="1530709263671" expanded="true" signature="5959:6109" ph="&lt;Text/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="6152:6814" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="6189:6798" ph="&lt;SwipeCards/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="6823:7011" ph="&lt;Image/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="7020:7347" ph="&lt;View/&gt;" />
-              <marker date="1530709263671" expanded="true" signature="7033:7251" ph="{&quot;width&quot;: styleDict.windowW...}" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native自定义文本输入框.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3315">
-            <caret line="228" column="30" lean-forward="false" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
-            <folding>
-              <marker date="1529242269060" expanded="true" signature="564:607" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="1558:1602" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="1616:2112" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="1637:2101" ph="&lt;View/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="1677:1729" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="false" signature="2170:2315" ph="..." />
-              <marker date="1529242269060" expanded="true" signature="2350:2424" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="2362:2422" ph="{&quot;justifyContent&quot;: 'center'...}" />
-              <marker date="1529242269060" expanded="true" signature="2458:7679" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="2481:2874" ph="{&quot;inputStyle&quot;: TextInput.propTypes.style...}" />
-              <marker date="1529242269060" expanded="true" signature="2901:3055" ph="{&quot;placeholderTextColor&quot;: '##ccc8c4'...}" />
-              <marker date="1529242269060" expanded="true" signature="3079:3185" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3116:3180" ph="{&quot;textAlign&quot;: 'right'...}" />
-              <marker date="1529242269060" expanded="true" signature="3226:3334" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3274:3330" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3363:3486" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3508:3626" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3588:3620" ph="{&quot;textAlign&quot;: 'right'...}" />
-              <marker date="1529242269060" expanded="true" signature="3649:3769" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3732:3763" ph="{&quot;textAlign&quot;: 'left'...}" />
-              <marker date="1529242269060" expanded="true" signature="3802:5231" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="3941:4766" ph="&lt;View/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="4052:4629" ph="&lt;TextInput/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="4226:4390" ph="[...]" />
-              <marker date="1529242269060" expanded="true" signature="4227:4373" ph="{&quot;color&quot;: '##332f2b'...}" />
-              <marker date="1529242269060" expanded="true" signature="4640:4750" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="4785:5220" ph="&lt;View/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="4924:5083" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="5094:5204" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="5267:6202" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="5398:5970" ph="&lt;TextInput/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="5617:5743" ph="[...]" />
-              <marker date="1529242269060" expanded="true" signature="5981:6191" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="6004:6146" ph="[...]" />
-              <marker date="1529242269060" expanded="true" signature="6005:6129" ph="{&quot;textAlign&quot;: 'left'...}" />
-              <marker date="1529242269060" expanded="true" signature="6216:7677" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="6313:6913" ph="{...}" />
-              <marker date="1529242269060" expanded="true" signature="6338:6898" ph="&lt;View/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="6361:6633" ph="{&quot;width&quot;: '100%'...}" />
-              <marker date="1529242269060" expanded="true" signature="6655:6838" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="6933:7666" ph="&lt;View/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="6954:7164" ph="[...]" />
-              <marker date="1529242269060" expanded="true" signature="6955:7148" ph="{&quot;width&quot;: '100%'...}" />
-              <marker date="1529242269060" expanded="true" signature="7182:7613" ph="&lt;Text/&gt;" />
-              <marker date="1529242269060" expanded="true" signature="7195:7472" ph="[...]" />
-              <marker date="1529242269060" expanded="true" signature="7207:7435" ph="{&quot;flexDirection&quot;: 'row'...}" />
+              <marker date="1532184424025" expanded="true" signature="2483:2564" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="2591:2654" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="2679:2953" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="2795:2832" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="2984:3259" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="3058:3139" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="4608:5849" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="4614:4723" ph="//..." />
+              <marker date="1532184424025" expanded="true" signature="4756:4909" ph="{&quot;key&quot;: '这里填写你自己申请的key，我的就不让你用了'...}" />
+              <marker date="1532184424025" expanded="true" signature="4984:5262" ph="//..." />
+              <marker date="1532184424025" expanded="true" signature="5608:5843" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="5660:5762" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="5686:5729" ph="{&quot;address&quot;: response...}" />
+              <marker date="1532184424025" expanded="true" signature="5737:5750" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="5781:5835" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="7112:8310" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="7119:7233" ph="//..." />
+              <marker date="1532184424025" expanded="true" signature="7269:7519" ph="{&quot;ak&quot;: '这里填写你自己申请的ak，我的就不让你用了'...}" />
+              <marker date="1532184424025" expanded="true" signature="7593:7688" ph="//..." />
+              <marker date="1532184424025" expanded="true" signature="8062:8303" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="8117:8224" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="8144:8189" ph="{&quot;address&quot;: response...}" />
+              <marker date="1532184424025" expanded="true" signature="8197:8211" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="8241:8294" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="9613:10070" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="9648:9733" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="9770:9855" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="9892:9987" ph="{...}" />
+              <marker date="1532184424025" expanded="true" signature="9993:10070" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
@@ -1047,39 +916,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native实现字符串样式分割组件.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="615">
-            <caret line="41" column="23" lean-forward="false" selection-start-line="41" selection-start-column="23" selection-end-line="41" selection-end-column="23" />
-            <folding>
-              <marker date="1529242383133" expanded="true" signature="704:998" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="727:987" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="1584:3391" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="1607:3378" ph="&lt;View/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="1623:1891" ph="&lt;Text/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="1901:2167" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="2177:2442" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="2452:2727" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="2737:3008" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="3018:3290" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="3300:3363" ph="&lt;StringDistinction/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="3451:3581" ph="..." />
-              <marker date="1529242383133" expanded="true" signature="3640:4741" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="3663:3897" ph="{&quot;frontStyle&quot;: TextInput.propTypes.style...}" />
-              <marker date="1529242383133" expanded="true" signature="3924:3978" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="3937:3973" ph="{&quot;alignItems&quot;: 'flex-end'...}" />
-              <marker date="1529242383133" expanded="true" signature="3992:4739" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="4237:4305" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="4327:4481" ph="{...}" />
-              <marker date="1529242383133" expanded="true" signature="4352:4466" ph="&lt;View/&gt;" />
-              <marker date="1529242383133" expanded="true" signature="4502:4728" ph="&lt;View/&gt;" />
-            </folding>
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/source/_posts/react-native修改应用启动页.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -1091,67 +927,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native使用jenkins自动化构建android和ios应用实践.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/Android Studio报错：Configuration on demand is not supported by the current version of the Android Gradle.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
+        <state split_layout="FIRST">
           <first_editor relative-caret-position="435">
-            <caret line="29" column="3" lean-forward="false" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
+            <caret line="29" column="15" lean-forward="false" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
             <folding />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native打包release版本闪退.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/Android中gradlew命令的基本使用.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="900">
-            <caret line="60" column="19" lean-forward="false" selection-start-line="60" selection-start-column="19" selection-end-line="60" selection-end-column="19" />
+          <first_editor relative-caret-position="2265">
+            <caret line="151" column="8" lean-forward="false" selection-start-line="151" selection-start-column="8" selection-end-line="151" selection-end-column="8" />
             <folding>
-              <marker date="1531802205570" expanded="true" signature="1782:1843" ph="..." />
-              <marker date="1531802205570" expanded="true" signature="2223:2395" ph="{&quot;frontStyle&quot;: TextInput.propTypes.style...}" />
+              <marker date="1531314655794" expanded="true" signature="2939:3014" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="3016:3079" ph="//..." />
+              <marker date="1531314655794" expanded="true" signature="3108:4315" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="3150:4309" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="3174:3716" ph="//..." />
+              <marker date="1531314655794" expanded="true" signature="3861:4299" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="3925:4038" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="4088:4211" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="4456:5584" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="4497:5578" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="4521:5063" ph="//..." />
+              <marker date="1531314655794" expanded="true" signature="5161:5568" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="5225:5338" ph="{...}" />
+              <marker date="1531314655794" expanded="true" signature="5388:5511" ph="{...}" />
             </folding>
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/source/_posts/react-native应用集成地理逆编码.md">
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native中打包静态js.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="498">
-            <caret line="283" column="0" lean-forward="false" selection-start-line="283" selection-start-column="0" selection-end-line="283" selection-end-column="0" />
-            <folding>
-              <marker date="1532184424025" expanded="true" signature="2483:2564" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="2591:2654" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="2679:2953" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="2795:2832" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="2984:3259" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="3058:3139" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="4608:5849" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="4614:4723" ph="//..." />
-              <marker date="1532184424025" expanded="true" signature="4756:4909" ph="{&quot;key&quot;: '这里填写你自己申请的key，我的就不让你用了'...}" />
-              <marker date="1532184424025" expanded="true" signature="4984:5262" ph="//..." />
-              <marker date="1532184424025" expanded="true" signature="5608:5843" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="5660:5762" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="5686:5729" ph="{&quot;address&quot;: response...}" />
-              <marker date="1532184424025" expanded="true" signature="5737:5750" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="5781:5835" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="7112:8310" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="7119:7233" ph="//..." />
-              <marker date="1532184424025" expanded="true" signature="7269:7519" ph="{&quot;ak&quot;: '这里填写你自己申请的ak，我的就不让你用了'...}" />
-              <marker date="1532184424025" expanded="true" signature="7593:7688" ph="//..." />
-              <marker date="1532184424025" expanded="true" signature="8062:8303" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="8117:8224" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="8144:8189" ph="{&quot;address&quot;: response...}" />
-              <marker date="1532184424025" expanded="true" signature="8197:8211" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="8241:8294" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="9613:10070" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="9648:9733" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="9770:9855" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="9892:9987" ph="{...}" />
-              <marker date="1532184424025" expanded="true" signature="9993:10070" ph="{...}" />
-            </folding>
+          <first_editor relative-caret-position="135">
+            <caret line="9" column="3" lean-forward="true" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native使用jenkins自动化构建android和ios应用实践.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="405">
+            <caret line="27" column="28" lean-forward="true" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/source/_posts/react-native打包发布apk.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="-674">
+            <caret line="19" column="22" lean-forward="true" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+            <folding />
           </first_editor>
           <second_editor />
         </state>
