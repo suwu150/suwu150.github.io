@@ -4,7 +4,7 @@ date: 2018-06-17 16:57:33
 tags: react
 ---
 1.效果如下所示：
-![react-flex-tabs](https://github.com/suwu150/static-resource/blob/master/images/react/react-flex-tabs.gif?raw=true)
+![react-flex-tabs](https://github.com/suwu150/react-flex-tabs/blob/master/react-flex-tabs.gif?raw=true)
 2.自己安装查看效果
   先克隆该项目
   ```
